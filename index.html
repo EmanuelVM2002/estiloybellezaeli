@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estilo y Belleza Eli · Salón de belleza en Medellín</title>
+<meta name="description" content="Uñas semipermanentes, keratina, alisados, color, corte, peinados, cejas y maquillaje profesional en Medellín. Agenda tu cita con Estilo y Belleza Eli.">
+<meta name="theme-color" content="#0b0b0b">
+<link rel="icon" href="logo-marca.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0b0b0b; --ink-2:#161616; --line:#2a2a2a;
+    --paper:#f6f4f0; --white:#fff; --mute:#9a9a9a; --mute-dark:#5d5d5d;
+    --serif:"Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --sans:"Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --gutter:clamp(20px,5vw,72px);
+    --max:1240px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:84px}
+  body{font-family:var(--sans);background:var(--ink);color:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+  .eyebrow{font-size:.74rem;letter-spacing:.28em;text-transform:uppercase;color:var(--mute);font-weight:600}
+  h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.02;letter-spacing:-.01em}
+  h2{font-size:clamp(2.4rem,5.4vw,4.4rem)}
+  em{font-style:italic}
+
+  /* Botones */
+  .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.95rem 1.6rem;border-radius:999px;font-weight:600;font-size:.92rem;letter-spacing:.02em;border:1.5px solid var(--white);transition:transform .25s,background .25s,color .25s,border-color .25s;cursor:pointer}
+  .btn-solid{background:var(--white);color:var(--ink)}
+  .btn-solid:hover{transform:translateY(-2px);background:var(--paper)}
+  .btn-line:hover{background:var(--white);color:var(--ink)}
+  .btn svg{width:16px;height:16px}
+  .on-light .btn{border-color:var(--ink)}
+  .on-light .btn-solid{background:var(--ink);color:var(--white)}
+  .on-light .btn-solid:hover{background:#222}
+  .on-light .btn-line:hover{background:var(--ink);color:var(--white)}
+
+  /* Navegación */
+  header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,backdrop-filter .3s,border-color .3s;border-bottom:1px solid transparent}
+  header.scrolled{background:rgba(11,11,11,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+  .brand{display:flex;align-items:center;gap:.8rem}
+  .brand svg{width:44px;height:44px}
+  .brand-name{font-family:var(--serif);font-size:1.25rem;line-height:1;font-weight:600;letter-spacing:.01em}
+  .brand-name small{display:block;font-family:var(--sans);font-size:.58rem;letter-spacing:.34em;text-transform:uppercase;color:var(--mute);margin-top:.35rem;font-weight:600}
+  .links{display:flex;gap:2.2rem;font-size:.86rem;font-weight:500}
+  .links a{position:relative;color:#d8d8d8;transition:color .2s}
+  .links a::after{content:"";position:absolute;left:0;bottom:-6px;height:1px;width:0;background:#fff;transition:width .3s}
+  .links a:hover{color:#fff}.links a:hover::after{width:100%}
+  .nav .btn{padding:.65rem 1.2rem;font-size:.82rem}
+  .burger{display:none;background:none;border:0;color:#fff;width:44px;height:44px;cursor:pointer}
+  .burger span{display:block;width:24px;height:1.5px;background:#fff;margin:6px auto;transition:transform .3s,opacity .3s}
+  .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+  .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+  .drawer{display:none}
+
+  /* Hero */
+  .hero{position:relative;min-height:100svh;padding:120px 0 72px;display:flex;align-items:center;overflow:hidden;
+    background:radial-gradient(900px 600px at 85% 20%,#1d1d1d 0,transparent 60%),var(--ink)}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,5vw,72px);align-items:center}
+  .hero h1{font-size:clamp(3.4rem,9vw,7.6rem);margin:1.2rem 0 1.6rem}
+  .hero h1 em{display:block;color:transparent;-webkit-text-stroke:1.5px #fff}
+  .hero p.lead{max-width:30rem;color:#c9c9c9;font-size:1.05rem}
+  .cta-row{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.2rem}
+  .hero-meta{display:flex;gap:2.4rem;margin-top:3rem;padding-top:1.6rem;border-top:1px solid var(--line);flex-wrap:wrap}
+  .hero-meta b{display:block;font-family:var(--serif);font-size:2.2rem;font-weight:600;line-height:1}
+  .hero-meta span{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+  .collage{position:relative;height:min(76vh,640px);min-height:440px}
+  .arch{position:absolute;overflow:hidden;border:1px solid #333;background:#111}
+  .arch img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+  .arch:hover img{transform:scale(1.06)}
+  .a1{left:0;top:6%;width:52%;height:78%;border-radius:999px 999px 18px 18px}
+  .a2{right:0;top:0;width:42%;height:46%;border-radius:18px 18px 999px 999px}
+  .a3{right:6%;bottom:0;width:40%;height:46%;border-radius:18px}
+  .spark{position:absolute;color:#fff;animation:tw 3.6s ease-in-out infinite}
+  .spark.s1{width:34px;left:46%;top:2%}.spark.s2{width:20px;left:54%;bottom:6%;animation-delay:1.4s}
+  @keyframes tw{0%,100%{opacity:.25;transform:scale(.8) rotate(0)}50%{opacity:1;transform:scale(1.1) rotate(20deg)}}
+  .scroll-hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+
+  /* Marquee */
+  .marquee{border-block:1px solid var(--line);background:var(--ink);overflow:hidden;padding:1.1rem 0}
+  .track{display:flex;gap:3rem;width:max-content;animation:slide 38s linear infinite}
+  .track span{font-family:var(--serif);font-size:1.7rem;font-style:italic;white-space:nowrap;display:flex;align-items:center;gap:3rem}
+  .track span::after{content:"✦";font-style:normal;font-size:.9rem;color:var(--mute)}
+  @keyframes slide{to{transform:translateX(-50%)}}
+
+  section{padding:clamp(72px,11vw,150px) 0}
+  .sec-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:clamp(36px,5vw,64px)}
+  .sec-head p{max-width:26rem;color:var(--mute)}
+
+  /* Servicios (claro) */
+  .on-light{background:var(--paper);color:var(--ink)}
+  .on-light .eyebrow{color:var(--mute-dark)}
+  .on-light .sec-head p{color:var(--mute-dark)}
+  .services{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#d9d5ce;border:1px solid #d9d5ce}
+  .svc{background:var(--paper);padding:2rem 1.8rem 2.2rem;display:flex;flex-direction:column;gap:1rem;min-height:280px;position:relative;transition:background .35s,color .35s}
+  .svc:hover{background:var(--ink);color:#fff}
+  .svc .num{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--mute-dark);transition:color .35s}
+  .svc:hover .num{color:#888}
+  .svc svg{width:44px;height:44px;stroke:currentColor;fill:none;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+  .svc h3{font-size:2rem}
+  .svc p{font-size:.93rem;color:var(--mute-dark);transition:color .35s}
+  .svc:hover p{color:#bdbdbd}
+  .svc .arrow{margin-top:auto;font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:.5rem}
+  .svc .arrow i{display:inline-block;transition:transform .3s;font-style:normal}
+  .svc:hover .arrow i{transform:translateX(6px)}
+
+  /* Galería */
+  .gallery{columns:4;column-gap:14px}
+  .shot{break-inside:avoid;margin-bottom:14px;position:relative;overflow:hidden;border-radius:14px;background:#111;cursor:zoom-in}
+  .shot img{width:100%;height:auto;transition:transform .9s cubic-bezier(.2,.7,.2,1),filter .5s;filter:grayscale(.15)}
+  .shot:hover img{transform:scale(1.05);filter:none}
+  .shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:2.4rem 1rem .9rem;background:linear-gradient(transparent,rgba(0,0,0,.78));font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;opacity:0;transform:translateY(8px);transition:.35s}
+  .shot:hover figcaption,.shot:focus-visible figcaption{opacity:1;transform:none}
+  .shot:focus-visible{outline:2px solid #fff;outline-offset:3px}
+  .gal-foot{display:flex;justify-content:center;margin-top:2.4rem}
+
+  /* Sobre / proceso */
+  .about{background:var(--ink-2);border-block:1px solid var(--line)}
+  .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,90px);align-items:center}
+  .about-img{position:relative;aspect-ratio:4/5;border-radius:999px 999px 20px 20px;overflow:hidden;border:1px solid #333}
+  .about-img img{width:100%;height:100%;object-fit:cover}
+  .about h2{margin:1rem 0 1.4rem}
+  .about p{color:#c9c9c9;max-width:34rem}
+  .steps{list-style:none;margin-top:2.4rem;display:grid;gap:1.4rem;counter-reset:s}
+  .steps li{counter-increment:s;display:grid;grid-template-columns:3rem 1fr;gap:1rem;padding-top:1.2rem;border-top:1px solid var(--line)}
+  .steps li::before{content:"0" counter(s);font-family:var(--serif);font-style:italic;font-size:1.6rem;color:var(--mute)}
+  .steps b{display:block;font-weight:600;margin-bottom:.15rem}
+  .steps span{color:var(--mute);font-size:.93rem}
+
+  /* CTA */
+  .cta{text-align:center;position:relative;overflow:hidden}
+  .cta h2{font-size:clamp(3rem,9vw,7.4rem);margin:1.2rem auto 1.8rem;max-width:14ch}
+  .cta h2 em{color:transparent;-webkit-text-stroke:1.5px #fff}
+  .cta p{color:#c9c9c9;max-width:32rem;margin:0 auto 2.2rem}
+  .cta .cta-row{justify-content:center}
+  .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:clamp(48px,7vw,90px);text-align:left}
+  .contact-grid div{background:var(--ink);padding:1.6rem 1.6rem 1.8rem}
+  .contact-grid .eyebrow{display:block;margin-bottom:.6rem}
+  .contact-grid a:hover{text-decoration:underline;text-underline-offset:4px}
+
+  footer{border-top:1px solid var(--line);padding:2.2rem 0;color:var(--mute);font-size:.82rem}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+  .foot .brand svg{width:34px;height:34px}
+
+  /* Lightbox */
+  .lb{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;padding:24px}
+  .lb.open{display:flex}
+  .lb img{max-height:88vh;max-width:min(92vw,720px);width:auto;border-radius:12px}
+  .lb button{position:absolute;top:18px;right:18px;background:none;border:1px solid #444;color:#fff;width:46px;height:46px;border-radius:50%;font-size:1.3rem;cursor:pointer}
+
+  /* Reveal */
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+  .rv.in{opacity:1;transform:none}
+  .d1{transition-delay:.12s}.d2{transition-delay:.24s}.d3{transition-delay:.36s}
+
+  @media (max-width:980px){
+    .links,.nav>.btn{display:none}
+    .burger{display:block}
+    .drawer{position:fixed;inset:76px 0 auto 0;background:rgba(11,11,11,.97);border-bottom:1px solid var(--line);padding:1rem var(--gutter) 1.6rem;flex-direction:column;gap:.2rem;z-index:49}
+    .drawer.open{display:flex}
+    .drawer a{padding:.95rem 0;font-family:var(--serif);font-size:1.8rem;border-bottom:1px solid var(--line)}
+    .drawer .btn{margin-top:1.2rem;justify-content:center;font-family:var(--sans);font-size:.95rem;border-bottom:1.5px solid #fff}
+    .hero-grid,.about-grid{grid-template-columns:1fr}
+    .collage{height:420px;min-height:0;order:-1;max-width:460px;width:100%;margin:0 auto}
+    .hero{align-items:flex-start;padding-top:104px}
+    .services{grid-template-columns:repeat(2,1fr)}
+    .gallery{columns:3}
+    .contact-grid{grid-template-columns:1fr}
+    .about-img{max-width:420px;margin:0 auto}
+    .scroll-hint{display:none}
+  }
+  @media (max-width:600px){
+    .services{grid-template-columns:1fr}
+    .svc{min-height:0}
+    .gallery{columns:2;column-gap:10px}.shot{margin-bottom:10px}
+    .hero-meta{gap:1.6rem}
+    .brand-name small{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .track,.spark{animation:none}
+    .rv{opacity:1;transform:none;transition:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- Símbolos reutilizables -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="mark" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="50" cy="50" r="41" fill="none" stroke="currentColor" stroke-width=".7"/>
+      <path d="M62 29H40.5a4.5 4.5 0 0 0-4.5 4.5v33a4.5 4.5 0 0 0 4.5 4.5H62M36 50h20" fill="none" stroke="currentColor" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path transform="translate(5 -6)" d="M71 22c.9 4.6 2.4 6.1 7 7-4.6.9-6.1 2.4-7 7-.9-4.6-2.4-6.1-7-7 4.600-.9 6.100-2.400 7-7Z" fill="currentColor"/>
+    </symbol>
+    <symbol id="spark" viewBox="0 0 24 24"><path d="M12 0c.9 7.200 4.800 11.100 12 12-7.200.9-11.100 4.800-12 12-.9-7.200-4.800-11.100-12-12 7.200-.9 11.100-4.800 12-12Z" fill="currentColor"/></symbol>
+    <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.3-1.4A9.9 9.9 0 1 0 12.04 2Zm0 1.8a8.1 8.1 0 1 1-4.2 15l-.3-.2-3.100.8.8-3-.2-.3a8.1 8.1 0 0 1 7-12.300Zm-3 3.700c-.2 0-.5.100-.7.400-.3.300-1 1-1 2.400s1 2.800 1.200 3c.1.200 2 3.200 5 4.400 2.400 1 2.900.8 3.400.7.600-.1 1.700-.7 1.900-1.400.2-.7.200-1.200.2-1.400-.1-.1-.3-.2-.6-.4l-1.800-.9c-.3-.1-.5-.1-.7.100l-.8 1c-.1.200-.3.200-.6.100-.3-.1-1.200-.5-2.300-1.400-.8-.8-1.400-1.700-1.600-2-.1-.3 0-.4.100-.6l.4-.5c.1-.2.200-.3.300-.5.100-.2 0-.4 0-.5l-.8-2c-.2-.5-.4-.5-.6-.5Z"/></symbol>
+    <symbol id="ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></symbol>
+  </defs>
+</svg>
+
+<header id="top">
+  <div class="wrap nav">
+    <a href="#inicio" class="brand" aria-label="Estilo y Belleza Eli, inicio">
+      <svg aria-hidden="true"><use href="#mark"/></svg>
+      <span class="brand-name">Estilo y Belleza Eli<small>Salón · Medellín</small></span>
+    </a>
+    <nav class="links" aria-label="Principal">
+      <a href="#servicios">Servicios</a>
+      <a href="#galeria">Galería</a>
+      <a href="#salon">El salón</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="btn btn-solid" data-book href="#contacto"><svg aria-hidden="true"><use href="#wa"/></svg> Agendar cita</a>
+    <button class="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="drawer" id="drawer" aria-label="Menú móvil">
+    <a href="#servicios">Servicios</a>
+    <a href="#galeria">Galería</a>
+    <a href="#salon">El salón</a>
+    <a href="#contacto">Contacto</a>
+    <a class="btn btn-solid" data-book href="#contacto">Agendar cita</a>
+  </nav>
+</header>
+
+<main id="inicio">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow rv">Salón de belleza · Medellín</span>
+        <h1 class="rv d1">Tu estilo,<em>nuestro arte.</em></h1>
+        <p class="lead rv d2">Uñas, cabello, cejas y maquillaje con acabado profesional. Cada detalle pensado para que salgas del salón sintiéndote la mejor versión de ti.</p>
+        <div class="cta-row rv d3">
+          <a class="btn btn-solid" data-book href="#contacto"><svg aria-hidden="true"><use href="#wa"/></svg> Agendar mi cita</a>
+          <a class="btn btn-line" href="#galeria">Ver trabajos</a>
+        </div>
+        <div class="hero-meta rv d3">
+          <div><b>3K+</b><span>En Instagram</span></div>
+          <div><b>7</b><span>Servicios</span></div>
+          <div><b>1 a 1</b><span>Atención personal</span></div>
+        </div>
+      </div>
+      <div class="collage" aria-hidden="false">
+        <div class="arch a1 rv"><img src="img/01.jpg" alt="Maquillaje profesional y peinado recogido con rizos" loading="eager"></div>
+        <div class="arch a2 rv d1"><img src="img/02.jpg" alt="Uñas semipermanentes con diseño francés y detalles dorados" loading="eager"></div>
+        <div class="arch a3 rv d2"><img src="img/10.jpg" alt="Cabello largo, liso y brillante después de keratina" loading="eager"></div>
+        <svg class="spark s1" aria-hidden="true"><use href="#spark"/></svg>
+        <svg class="spark s2" aria-hidden="true"><use href="#spark"/></svg>
+      </div>
+    </div>
+    <div class="scroll-hint">Desliza</div>
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="track">
+      <span>Uñas semipermanentes</span><span>Keratina</span><span>Alisados</span><span>Color y químicos</span><span>Corte y cepillado</span><span>Peinados y trenzas</span><span>Cejas</span><span>Maquillaje profesional</span>
+      <span>Uñas semipermanentes</span><span>Keratina</span><span>Alisados</span><span>Color y químicos</span><span>Corte y cepillado</span><span>Peinados y trenzas</span><span>Cejas</span><span>Maquillaje profesional</span>
+    </div>
+  </div>
+
+  <!-- SERVICIOS -->
+  <section id="servicios" class="on-light">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow rv">Lo que hacemos</span>
+          <h2 class="rv d1" style="margin-top:.8rem">Servicios <em>a tu medida</em></h2>
+        </div>
+        <p class="rv d2">Del cuidado diario a la ocasión especial. Escríbenos y te asesoramos según tu tipo de cabello, tus manos y tu estilo.</p>
+      </div>
+      <div class="services">
+        <article class="svc rv">
+          <span class="num">01</span>
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M17 44V22c0-3 2-5 5-5h4c3 0 5 2 5 5v22"/><path d="M19 17V9c0-3 2-5 5-5s5 2 5 5v8"/><path d="M24 4v6"/></svg>
+          <h3>Uñas semipermanentes</h3>
+          <p>Color, diseños a mano alzada, francés y acabados con brillo que duran semanas sin perder su forma.</p>
+          <a class="arrow" data-book href="#contacto">Reservar <i>→</i></a>
+        </article>
+        <article class="svc rv d1">
+          <span class="num">02</span>
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 40c4-3 4-9 0-13s-4-10 0-14"/><path d="M18 42c5-4 5-11 0-16s-5-12 0-17"/><path d="M28 42c5-4 5-11 0-16s-5-12 0-17"/><path d="M38 40c4-3 4-9 0-13s-4-10 0-14"/></svg>
+          <h3>Keratina y alisados</h3>
+          <p>Tratamientos que controlan el frizz, devuelven brillo y suavidad, y facilitan el peinado de todos los días.</p>
+          <a class="arrow" data-book href="#contacto">Reservar <i>→</i></a>
+        </article>
+        <article class="svc rv d2">
+          <span class="num">03</span>
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M16 6h16l-2 10H18Z"/><path d="M18 16c-6 4-8 12-6 24h24c2-12 0-20-6-24"/><path d="M14 30h20"/></svg>
+          <h3>Color y químicos</h3>
+          <p>Tintes, mechas y cambios de look con productos profesionales y cuidado de la fibra capilar.</p>
+          <a class="arrow" data-book href="#contacto">Reservar <i>→</i></a>
+        </article>
+        <article class="svc rv">
+          <span class="num">04</span>
+          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="13" cy="35" r="6"/><circle cx="13" cy="13" r="6"/><path d="M18 17l22 22M18 31L40 9"/></svg>
+          <h3>Corte y cepillado</h3>
+          <p>Cortes que respetan la forma de tu rostro y cepillados con volumen, movimiento y acabado de revista.</p>
+          <a class="arrow" data-book href="#contacto">Reservar <i>→</i></a>
+        </article>
+        <article class="svc rv d1">
+          <span class="num">05</span>
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M16 6c0 8 4 10 4 18s-4 10-4 18"/><path d="M24 6c0 8 4 10 4 18s-4 10-4 18"/><path d="M32 6c0 8-4 10-4 18s4 10 4 18"/></svg>
+          <h3>Peinados y trenzas</h3>
+          <p>Recogidos, ondas y trenzas para matrimonios, grados, quinceañeras o cualquier celebración.</p>
+          <a class="arrow" data-book href="#contacto">Reservar <i>→</i></a>
+        </article>
+        <article class="svc rv d2">
+          <span class="num">06</span>
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M4 24c8-9 32-9 40 0-8 9-32 9-40 0Z"/><circle cx="24" cy="24" r="5"/><path d="M8 14c10-6 22-6 32 0"/></svg>
+          <h3>Cejas y maquillaje</h3>
+          <p>Diseño de cejas y maquillaje profesional que realza tus rasgos, para el día o para la noche.</p>
+          <a class="arrow" data-book href="#contacto">Reservar <i>→</i></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERÍA -->
+  <section id="galeria">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow rv">Nuestro trabajo</span>
+          <h2 class="rv d1" style="margin-top:.8rem">Resultados <em>que hablan</em></h2>
+        </div>
+        <p class="rv d2">Algunos de los trabajos recientes del salón. Toca cualquier foto para verla más grande.</p>
+      </div>
+      <div class="gallery" id="gallery">
+        <figure class="shot rv" tabindex="0" role="button" aria-label="Ampliar: maquillaje y peinado"><img src="img/01.jpg" alt="Maquillaje profesional y peinado recogido" loading="lazy"><figcaption>Maquillaje y peinado</figcaption></figure>
+        <figure class="shot rv d1" tabindex="0" role="button" aria-label="Ampliar: uñas"><img src="img/02.jpg" alt="Uñas semipermanentes con francés y dorado" loading="lazy"><figcaption>Uñas semipermanentes</figcaption></figure>
+        <figure class="shot rv d2" tabindex="0" role="button" aria-label="Ampliar: keratina"><img src="img/10.jpg" alt="Cabello liso y brillante con keratina" loading="lazy"><figcaption>Keratina y alisado</figcaption></figure>
+        <figure class="shot rv d3" tabindex="0" role="button" aria-label="Ampliar: rizos"><img src="img/05.jpg" alt="Cabello rizado definido" loading="lazy"><figcaption>Rizos definidos</figcaption></figure>
+        <figure class="shot rv" tabindex="0" role="button" aria-label="Ampliar: tratamiento"><img src="img/07.jpg" alt="Cabello en proceso de tratamiento" loading="lazy"><figcaption>Tratamiento capilar</figcaption></figure>
+        <figure class="shot rv d1" tabindex="0" role="button" aria-label="Ampliar: color"><img src="img/12.jpg" alt="Cabello con color cobrizo intenso" loading="lazy"><figcaption>Color y cambio de look</figcaption></figure>
+        <figure class="shot rv d2" tabindex="0" role="button" aria-label="Ampliar: alisado"><img src="img/08.jpg" alt="Cabello oscuro suave y con movimiento" loading="lazy"><figcaption>Suavidad y movimiento</figcaption></figure>
+        <figure class="shot rv d3" tabindex="0" role="button" aria-label="Ampliar: cepillado"><img src="img/09.jpg" alt="Cabello largo con cepillado" loading="lazy"><figcaption>Corte y cepillado</figcaption></figure>
+      </div>
+      <div class="gal-foot rv">
+        <a class="btn btn-line" href="https://www.instagram.com/estiloybellezaeli85/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#ig"/></svg> Ver más en Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EL SALÓN -->
+  <section id="salon" class="about">
+    <div class="wrap about-grid">
+      <div class="about-img rv"><img src="img/01.jpg" alt="Clienta con maquillaje y peinado realizados en el salón" loading="lazy" style="object-position:50% 30%"></div>
+      <div>
+        <span class="eyebrow rv">El salón</span>
+        <h2 class="rv d1">Belleza hecha <em>con calma</em> y con oficio</h2>
+        <p class="rv d2">En Estilo y Belleza Eli cuidamos cada servicio como si fuera el único del día. Escuchamos lo que quieres, te decimos con honestidad qué te favorece y trabajamos con técnica profesional para que el resultado dure y se vea natural.</p>
+        <ol class="steps">
+          <li class="rv"><div><b>Escríbenos</b><span>Cuéntanos qué servicio quieres y mándanos una foto de referencia.</span></div></li>
+          <li class="rv d1"><div><b>Elige tu horario</b><span>Te confirmamos disponibilidad y cuánto tomará tu servicio.</span></div></li>
+          <li class="rv d2"><div><b>Disfruta el resultado</b><span>Llegas, te consentimos y sales lista para brillar.</span></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA + CONTACTO -->
+  <section id="contacto" class="cta">
+    <div class="wrap">
+      <span class="eyebrow rv">Reserva tu momento</span>
+      <h2 class="rv d1">Hoy es un buen día <em>para verte increíble.</em></h2>
+      <p class="rv d2">Escríbenos y agenda tu cita. Respondemos con disponibilidad y te ayudamos a elegir el servicio ideal.</p>
+      <div class="cta-row rv d3">
+        <a class="btn btn-solid" data-book href="https://ig.me/m/estiloybellezaeli85" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg> Agendar mi cita</a>
+        <a class="btn btn-line" href="https://www.instagram.com/estiloybellezaeli85/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#ig"/></svg> @estiloybellezaeli85</a>
+      </div>
+      <div class="contact-grid rv">
+        <div><span class="eyebrow">Ubicación</span>Medellín, Colombia<br><span style="color:var(--mute);font-size:.9rem">Dirección exacta por mensaje</span></div>
+        <div><span class="eyebrow">Escríbenos</span><a id="contactLink" href="https://ig.me/m/estiloybellezaeli85" target="_blank" rel="noopener">Mensaje directo en Instagram</a></div>
+        <div><span class="eyebrow">Síguenos</span><a href="https://www.instagram.com/estiloybellezaeli85/" target="_blank" rel="noopener">@estiloybellezaeli85</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a href="#inicio" class="brand"><svg aria-hidden="true"><use href="#mark"/></svg><span class="brand-name" style="font-size:1.05rem">Estilo y Belleza Eli</span></a>
+    <span>© <span id="yr">2026</span> Estilo y Belleza Eli · Medellín</span>
+  </div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto ampliada"><button aria-label="Cerrar">✕</button><img alt=""></div>
+
+<script>
+/* ── Configuración: pon aquí el WhatsApp del salón (solo dígitos, con 57 al inicio).
+      Mientras esté vacío, todos los botones de "Agendar" abren el mensaje directo de Instagram. */
+const WHATSAPP = "";            // ej.: "573001234567"
+const WA_TEXT  = "Hola, quisiera agendar una cita en Estilo y Belleza Eli.";
+
+(function(){
+  const $ = (s, c=document) => c.querySelector(s), $$ = (s, c=document) => [...c.querySelectorAll(s)];
+
+  // Botones de reserva
+  const bookUrl = WHATSAPP
+    ? `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(WA_TEXT)}`
+    : "https://ig.me/m/estiloybellezaeli85";
+  $$("[data-book]").forEach(a => { a.href = bookUrl; a.target = "_blank"; a.rel = "noopener"; });
+  const cl = $("#contactLink");
+  if (WHATSAPP){ cl.href = bookUrl; cl.textContent = "Escríbenos por WhatsApp"; }
+
+  $("#yr").textContent = new Date().getFullYear();
+
+  // Cabecera al hacer scroll
+  const header = $("header");
+  const onScroll = () => header.classList.toggle("scrolled", scrollY > 24);
+  onScroll(); addEventListener("scroll", onScroll, {passive:true});
+
+  // Menú móvil
+  const burger = $(".burger"), drawer = $("#drawer");
+  const closeMenu = () => { drawer.classList.remove("open"); burger.setAttribute("aria-expanded","false"); };
+  burger.addEventListener("click", () => {
+    const open = drawer.classList.toggle("open");
+    burger.setAttribute("aria-expanded", open);
+  });
+  $$("#drawer a").forEach(a => a.addEventListener("click", closeMenu));
+
+  // Aparición al hacer scroll
+  const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }), {threshold:.12, rootMargin:"0px 0px -40px 0px"});
+  $$(".rv").forEach(el => io.observe(el));
+
+  // Lightbox
+  const lb = $("#lb"), lbImg = $("img", lb);
+  const openLb = fig => { const im = $("img", fig); lbImg.src = im.src; lbImg.alt = im.alt; lb.classList.add("open"); $("button", lb).focus(); };
+  const closeLb = () => lb.classList.remove("open");
+  $$(".shot").forEach(f => {
+    f.addEventListener("click", () => openLb(f));
+    f.addEventListener("keydown", e => { if(e.key==="Enter"||e.key===" "){ e.preventDefault(); openLb(f); } });
+  });
+  lb.addEventListener("click", e => { if(e.target !== lbImg) closeLb(); });
+  addEventListener("keydown", e => { if(e.key==="Escape"){ closeLb(); closeMenu(); } });
+})();
+</script>
+</body>
+</html>
