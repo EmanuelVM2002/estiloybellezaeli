@@ -35,7 +35,7 @@
   h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.02;letter-spacing:-.01em}
   h2{font-size:clamp(2.4rem,5.2vw,4.2rem)}
   em{font-style:italic}
-  .grad{background:linear-gradient(100deg,#fff 0%,var(--nude) 45%,var(--champagne) 75%,#fff 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 7s ease-in-out infinite alternate}
+  .grad{background:linear-gradient(100deg,#fff 0%,#f9e1d8 45%,#f3e2bd 75%,#fff 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 7s ease-in-out infinite alternate}
   @keyframes shine{to{background-position:100% 0}}
 
   /* Botones */
@@ -87,7 +87,7 @@
   .hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(28px,5vw,80px);align-items:center}
   .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(460px circle at var(--gx,72%) var(--gy,38%),rgba(228,201,192,.11),transparent 62%)}
   .hero h1{font-size:clamp(2.1rem,3.7vw,3.2rem);font-weight:500;letter-spacing:.005em;margin:1.1rem 0 1.3rem;line-height:1.1;max-width:22ch}
-  .hero h1 em{display:block;font-family:'Pinyon Script','Snell Roundhand',cursive;font-style:normal;font-weight:400;font-size:clamp(3.4rem,7.4vw,6rem);line-height:1.12;letter-spacing:0;padding:.05em 0 .12em;margin-top:.15em}
+  .hero h1 em{display:block;font-family:var(--serif);font-style:italic;font-weight:600;font-size:clamp(2.9rem,6.2vw,5rem);line-height:1.06;letter-spacing:-.005em;margin-top:.12em;color:#fbeee8;text-shadow:0 2px 24px rgba(228,201,192,.28)}
   .hero p.lead{max-width:31rem;color:#cfcbc6;font-size:1.05rem}
   .cta-row{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.2rem}
   .points{display:flex;flex-wrap:wrap;gap:.6rem 1.8rem;margin-top:2.6rem;padding-top:1.5rem;border-top:1px solid var(--line);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
@@ -368,7 +368,7 @@
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <span class="eyebrow rv">Uñas y cabello · Medellín</span>
-        <h1 class="rv d1">Uñas que inspiran, cabello con estilo,<em class="grad">luce tu mejor versión.</em></h1>
+        <h1 class="rv d1">Uñas que inspiran, cabello con estilo,<em>luce tu mejor versión.</em></h1>
         <p class="lead rv d2">Diseños de uñas hechos a mano y cuidado del cabello con acabado impecable. Un espacio para que salgas sintiéndote tú, pero más brillante.</p>
         <div class="cta-row rv d3">
           <a class="btn btn-solid" data-book href="#ubicacion"><svg class="ico-wa" aria-hidden="true"><use href="#wa"/></svg> Agendar mi cita</a>
