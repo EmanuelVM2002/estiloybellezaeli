@@ -84,37 +84,65 @@
   .orb.o1{width:340px;height:340px;right:-80px;top:30%;background:rgba(228,201,192,.16)}
   .orb.o2{width:260px;height:260px;left:18%;bottom:-60px;background:rgba(216,194,160,.12);animation-delay:-6s}
   @keyframes drift{to{transform:translate(-30px,24px) scale(1.12)}}
-  .hero-grid{display:grid;grid-template-columns:1fr 1.02fr;gap:clamp(28px,5vw,80px);align-items:center}
-  .hero-logo{display:block;width:clamp(150px,18vw,230px);height:clamp(150px,18vw,230px);color:#fff;margin-bottom:1.8rem;filter:drop-shadow(0 18px 40px rgba(228,201,192,.22));opacity:0;transform:scale(.9) rotate(-4deg);animation:logoin 1.4s var(--ease) .1s forwards}
-  @keyframes logoin{to{opacity:1;transform:none}}
-  .hero h1{font-size:clamp(2.4rem,4.6vw,4rem);font-weight:500;letter-spacing:.01em;margin:1.1rem 0 1.4rem;line-height:1.05}
-  .hero h1 em{display:block;font-family:'Pinyon Script','Snell Roundhand',cursive;font-style:normal;font-weight:400;font-size:clamp(3.6rem,8.6vw,7rem);line-height:1.12;letter-spacing:0;padding:.05em 0 .12em}
-  .hero p.lead{max-width:30rem;color:#cfcbc6;font-size:1.05rem}
+  .hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(28px,5vw,80px);align-items:center}
+  .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(460px circle at var(--gx,72%) var(--gy,38%),rgba(228,201,192,.11),transparent 62%)}
+  .hero h1{font-size:clamp(2.1rem,3.7vw,3.2rem);font-weight:500;letter-spacing:.005em;margin:1.1rem 0 1.3rem;line-height:1.1;max-width:22ch}
+  .hero h1 em{display:block;font-family:'Pinyon Script','Snell Roundhand',cursive;font-style:normal;font-weight:400;font-size:clamp(3.4rem,7.4vw,6rem);line-height:1.12;letter-spacing:0;padding:.05em 0 .12em;margin-top:.15em}
+  .hero p.lead{max-width:31rem;color:#cfcbc6;font-size:1.05rem}
   .cta-row{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.2rem}
   .points{display:flex;flex-wrap:wrap;gap:.6rem 1.8rem;margin-top:2.6rem;padding-top:1.5rem;border-top:1px solid var(--line);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
   .points span{display:inline-flex;align-items:center;gap:.6rem}
   .points span::before{content:"✦";color:var(--champagne);font-size:.7rem}
 
-  /* Mosaico de unas con aparicion */
-  .mosaic{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:14px;height:min(72vh,620px);min-height:440px;position:relative}
-  .tile{position:relative;animation:floaty 8s ease-in-out infinite;animation-delay:var(--f,0s)}
-  .tile .in{position:absolute;inset:0;overflow:hidden;border-radius:26px;background:#1b1b1d;border:1px solid rgba(255,255,255,.14);
-    clip-path:inset(0 0 100% 0 round 26px);opacity:0;animation:reveal 1.2s var(--ease) forwards;animation-delay:var(--d,0s)}
+  /* Escenario interactivo: logo + fotos de unas */
+  .stage{--mx:0;--my:0;position:relative;width:min(100%,600px);aspect-ratio:1/1;margin:0 auto;z-index:2}
+  .tile{position:absolute;width:var(--w);aspect-ratio:var(--ar,1);translate:calc(var(--mx)*var(--p,10)*1px) calc(var(--my)*var(--p,10)*1px);animation:floaty 8s ease-in-out infinite;animation-delay:var(--f,0s)}
+  .tile .in{position:absolute;inset:0;overflow:hidden;border-radius:24px;background:#1b1b1d;border:1px solid rgba(255,255,255,.16);
+    clip-path:inset(0 0 100% 0 round 24px);opacity:0;animation:reveal 1.2s var(--ease) forwards;animation-delay:var(--d,0s)}
   .tile img{width:100%;height:100%;object-fit:cover;transform:scale(1.25);animation:settle 2.2s var(--ease) forwards;animation-delay:var(--d,0s)}
-  .tile::after{content:"";position:absolute;inset:0;border-radius:26px;pointer-events:none;background:linear-gradient(180deg,transparent 55%,rgba(13,13,15,.7) 100%);opacity:0;animation:fadein 1s ease forwards;animation-delay:calc(var(--d,0s) + .8s)}
-  .tile figcaption{position:absolute;left:18px;bottom:14px;z-index:2;font-family:var(--serif);font-style:italic;font-size:1.35rem;opacity:0;animation:fadein 1s ease forwards;animation-delay:calc(var(--d,0s) + 1s)}
-  .t1{grid-row:1 / span 2;--d:.2s;--f:0s}
-  .t1 figcaption{top:16px;bottom:auto;text-shadow:0 2px 14px rgba(0,0,0,.7)}
-  .t2{--d:.55s;--f:-3s}
-  .t3{--d:.9s;--f:-5s}
-  .t4{position:absolute;left:-22px;bottom:34px;width:34%;aspect-ratio:3/4;--d:1.3s;--f:-2s;z-index:3}
-  .t4 .in{border:3px solid var(--ink);box-shadow:0 24px 50px -16px rgba(0,0,0,.7)}
+  .tile::after{content:"";position:absolute;inset:0;border-radius:24px;pointer-events:none;background:linear-gradient(180deg,transparent 55%,rgba(13,13,15,.7) 100%);opacity:0;animation:fadein 1s ease forwards;animation-delay:calc(var(--d,0s) + .8s)}
+  .tile figcaption{position:absolute;left:14px;bottom:10px;z-index:2;font-family:var(--serif);font-style:italic;font-size:1.15rem;opacity:0;animation:fadein 1s ease forwards;animation-delay:calc(var(--d,0s) + 1s)}
+  .t1{--w:33%;--ar:4/5;left:0;top:2%;--p:-16;--d:.2s;--f:0s}
+  .t2{--w:34%;--ar:1/1;right:0;top:0;--p:14;--d:.55s;--f:-3s}
+  .t3{--w:35%;--ar:1/1;left:2%;bottom:0;--p:18;--d:.9s;--f:-5s}
+  .t4{--w:29%;--ar:3/4;right:1%;bottom:3%;--p:-12;--d:1.2s;--f:-2s}
+  .t2 figcaption{left:auto;right:14px;bottom:auto;top:10px;text-shadow:0 2px 12px rgba(0,0,0,.7)}
   .t4::after,.t4 figcaption{display:none}
-  .chip{position:absolute;right:-8px;top:46%;z-index:4;padding:.55rem 1rem;border-radius:999px;background:rgba(247,243,238,.92);color:var(--ink);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;display:flex;gap:.5rem;align-items:center;box-shadow:0 14px 34px -12px rgba(0,0,0,.6);opacity:0;animation:fadein 1s ease forwards 1.8s}
-  @keyframes reveal{to{clip-path:inset(0 0 0 0 round 26px);opacity:1}}
+  @keyframes reveal{to{clip-path:inset(0 0 0 0 round 24px);opacity:1}}
   @keyframes settle{to{transform:scale(1)}}
   @keyframes fadein{to{opacity:1}}
   @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+
+  /* Medallon con el logo */
+  .medal{position:absolute;left:50%;top:50%;width:62%;aspect-ratio:1;translate:-50% -50%;z-index:3;cursor:pointer;perspective:900px;outline:none;-webkit-tap-highlight-color:transparent;opacity:0;animation:medalin 1.4s var(--ease) .15s forwards}
+  @keyframes medalin{from{opacity:0;scale:.86}to{opacity:1;scale:1}}
+  .medal:focus-visible .disc{box-shadow:0 0 0 3px var(--nude),0 30px 70px -20px rgba(0,0,0,.8)}
+  .halo{position:absolute;inset:-16%;border-radius:50%;background:radial-gradient(circle,rgba(228,201,192,.34),rgba(216,194,160,.10) 45%,transparent 66%);animation:pulse 5s ease-in-out infinite;pointer-events:none}
+  @keyframes pulse{0%,100%{opacity:.65;transform:scale(.96)}50%{opacity:1;transform:scale(1.05)}}
+  .orbit{position:absolute;inset:-8%;width:116%;height:116%;color:var(--champagne);animation:spin 70s linear infinite;pointer-events:none}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .tilt{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(calc(var(--my)*-9deg)) rotateY(calc(var(--mx)*12deg));will-change:transform}
+  .disc{position:absolute;inset:2.5%;border-radius:50%;background:radial-gradient(circle at 34% 28%,rgba(255,255,255,.12),rgba(13,13,15,.9) 64%);box-shadow:0 34px 70px -22px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.14) inset,0 0 80px rgba(228,201,192,.16);transition:box-shadow .4s}
+  .medal:hover .disc,.medal.excited .disc{box-shadow:0 34px 70px -22px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.3) inset,0 0 110px rgba(228,201,192,.36)}
+  svg.hl{position:absolute;inset:0;width:100%;height:100%;color:#fff;overflow:visible;transform:translateZ(30px)}
+  .l-hair{translate:calc(var(--mx)*-22px) calc(var(--my)*-18px)}
+  .l-arc{translate:calc(var(--mx)*10px) calc(var(--my)*8px)}
+  .l-eli{translate:calc(var(--mx)*26px) calc(var(--my)*20px)}
+  .l-bfs{translate:calc(var(--mx)*46px) calc(var(--my)*36px)}
+  .l-sway{transform-box:view-box;transform-origin:20% 100%;animation:sway 7s ease-in-out infinite alternate}
+  @keyframes sway{from{transform:rotate(-.9deg) translateY(0)}to{transform:rotate(.9deg) translateY(7px)}}
+  .bfd{animation:bob var(--bd,5s) ease-in-out infinite alternate}
+  @keyframes bob{from{translate:0 0}to{translate:8px -24px}}
+  .bf{transform-box:fill-box;transform-origin:50% 55%;animation:flap var(--fs,1s) ease-in-out infinite alternate}
+  @keyframes flap{from{transform:scaleX(1)}to{transform:scaleX(.45)}}
+  .medal:hover .bf,.medal.excited .bf{animation-duration:.26s}
+  .medal.pop svg.hl{animation:pop .7s var(--ease)}
+  @keyframes pop{0%{scale:1}35%{scale:1.07;rotate:-2deg}100%{scale:1;rotate:0deg}}
+  .hint{position:absolute;left:50%;bottom:1%;translate:-50% 0;z-index:4;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--champagne);opacity:0;animation:fadein 1s ease forwards 2.6s,nudge 2.6s ease-in-out 3.6s infinite;transition:opacity .5s;pointer-events:none;white-space:nowrap}
+  .hint.off{animation:none;opacity:0!important}
+  @keyframes nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+  .fly{position:absolute;left:0;top:0;pointer-events:none;z-index:6;overflow:visible;will-change:transform,opacity}
+  .sp{position:absolute;left:0;top:0;pointer-events:none;z-index:5;line-height:1;will-change:transform,opacity}
 
   /* Marquee */
   .marquee{border-block:1px solid var(--line);background:var(--ink-2);overflow:hidden;padding:1.1rem 0}
@@ -237,9 +265,9 @@
     .drawer .btn{margin-top:1.2rem;justify-content:center;font-family:var(--sans);font-size:.95rem;border:1.5px solid #fff}
     .hero-grid,.about-grid,.where-grid{grid-template-columns:1fr}
     .hero{align-items:flex-start;padding-top:100px}
-    .mosaic{height:340px;min-height:0;max-width:520px;width:100%;margin:0 auto 10px;grid-template-columns:1.15fr .85fr;gap:10px}
-    .hero-logo{width:150px;height:150px;margin:0 auto 1.2rem}
-    .hero-grid>div:first-child{text-align:center}
+    .stage{order:-1;width:min(100%,460px);margin-bottom:.4rem}
+    .hero-copy{text-align:center}
+    .hero h1{margin-left:auto;margin-right:auto}
     .hero .cta-row,.hero .points{justify-content:center}
     .hero p.lead{margin-left:auto;margin-right:auto}
     .gallery{columns:2}
@@ -250,18 +278,20 @@
     .gallery{columns:2;column-gap:10px}.shot{margin-bottom:10px;border-radius:14px}
     .brand-name small{display:none}
     .brand svg{width:52px;height:52px}
-    .t4{left:-8px;bottom:22px;width:36%}
-    .chip{right:4px;font-size:.62rem}
+    .tile figcaption{font-size:.95rem;left:10px;bottom:7px}
+    .tile .in,.tile::after{border-radius:18px}
+    .medal{width:64%}
+    .hint{font-size:.6rem;letter-spacing:.18em}
     .portrait .sig{right:-6px}
     .fab-wa span{display:none}.fab-wa{width:56px;padding:0}
   }
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
-    .track,.orb,.tile,.grad,.fab-wa::before{animation:none}
-    .hero-logo{animation:none;opacity:1;transform:none}
+    .track,.orb,.tile,.grad,.fab-wa::before,.halo,.orbit,.l-sway,.bfd,.bf{animation:none}
+    .medal{animation:none;opacity:1}
     .tile .in{animation:none;clip-path:none;opacity:1}
     .tile img{animation:none;transform:none}
-    .tile::after,.tile figcaption,.chip{animation:none;opacity:1}
+    .tile::after,.tile figcaption,.hint{animation:none;opacity:1}
     .rv{opacity:1;transform:none;transition:none}
   }
 </style>
@@ -336,11 +366,10 @@
   <div class="hero">
     <span class="orb o1"></span><span class="orb o2"></span>
     <div class="wrap hero-grid">
-      <div>
-        <svg class="hero-logo" role="img" aria-label="Estilo y Belleza Eli"><use href="#logo"/></svg>
-        <span class="eyebrow rv">Nail studio · Medellín</span>
-        <h1 class="rv d1">Donde tus manos<em class="grad">se vuelven arte.</em></h1>
-        <p class="lead rv d2">Semipermanentes, francés, degradado y nail art hechos a mano, con acabado impecable y diseños pensados para ti.</p>
+      <div class="hero-copy">
+        <span class="eyebrow rv">Uñas y cabello · Medellín</span>
+        <h1 class="rv d1">Uñas que inspiran, cabello con estilo,<em class="grad">luce tu mejor versión.</em></h1>
+        <p class="lead rv d2">Diseños de uñas hechos a mano y cuidado del cabello con acabado impecable. Un espacio para que salgas sintiéndote tú, pero más brillante.</p>
         <div class="cta-row rv d3">
           <a class="btn btn-solid" data-book href="#ubicacion"><svg class="ico-wa" aria-hidden="true"><use href="#wa"/></svg> Agendar mi cita</a>
           <a class="btn btn-line" href="#galeria">Ver diseños</a>
@@ -348,12 +377,48 @@
         <div class="points rv d3"><span>Cita por WhatsApp</span><span>Diseño a tu medida</span><span>Medellín</span></div>
       </div>
 
-      <div class="mosaic" aria-label="Diseños de uñas">
+      <div class="stage" id="stage" aria-label="Logo de Estilo y Belleza Eli y diseños de uñas">
         <figure class="tile t1"><div class="in"><img src="img/unas-frances.jpg" alt="Uñas con francés, detalles blancos y puntas doradas"></div><figcaption>Francés</figcaption></figure>
-        <figure class="tile t2"><div class="in"><img src="img/unas-mariposas.jpg" alt="Uñas con mariposas blancas y glitter" style="object-position:50% 60%"></div><figcaption>Mariposas</figcaption></figure>
-        <figure class="tile t3"><div class="in"><img src="img/unas-degradado.jpg" alt="Uñas con degradado rosa a blanco" style="object-position:30% 50%"></div><figcaption>Degradado</figcaption></figure>
+        <figure class="tile t2"><div class="in"><img src="img/svc-nailart.jpg" alt="Uñas con mariposas blancas, glitter y degradado"></div><figcaption>Mariposas</figcaption></figure>
+        <figure class="tile t3"><div class="in"><img src="img/svc-degradado.jpg" alt="Uñas con degradado rosa a blanco" style="object-position:50% 70%"></div><figcaption>Degradado</figcaption></figure>
         <figure class="tile t4"><div class="in"><img src="img/svc-fina.jpg" alt="Uñas con mariposa y glitter dorado" style="object-position:45% 50%"></div></figure>
-        <div class="chip">✦ Hecho a mano</div>
+
+        <div class="medal" id="medal" role="button" tabindex="0" aria-label="Logo de Estilo y Belleza Eli. Tócalo para ver mariposas">
+          <span class="halo"></span>
+          <svg class="orbit" viewBox="0 0 400 400" aria-hidden="true">
+            <circle cx="200" cy="200" r="196" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="1 9" stroke-linecap="round"/>
+            <g fill="currentColor">
+              <path transform="translate(200 4)" d="M0-9C1-3 3-1 9 0 3 1 1 3 0 9-1 3-3 1-9 0-3-1-1-3 0-9Z"/>
+              <path transform="translate(396 200)" d="M0-9C1-3 3-1 9 0 3 1 1 3 0 9-1 3-3 1-9 0-3-1-1-3 0-9Z"/>
+              <path transform="translate(200 396)" d="M0-9C1-3 3-1 9 0 3 1 1 3 0 9-1 3-3 1-9 0-3-1-1-3 0-9Z"/>
+              <path transform="translate(4 200)" d="M0-9C1-3 3-1 9 0 3 1 1 3 0 9-1 3-3 1-9 0-3-1-1-3 0-9Z"/>
+            </g>
+          </svg>
+          <div class="tilt">
+            <span class="disc"></span>
+            <svg class="hl" viewBox="0 0 1080 1080" aria-hidden="true">
+              <defs>
+                <clipPath id="hl-clip"><circle cx="540" cy="540" r="510"/></clipPath>
+                <mask id="hl-mask" maskUnits="userSpaceOnUse" x="-100" y="-100" width="1280" height="1280"><image href="img/mujer-blanco.png" x="30" y="480" width="570" height="595"/></mask>
+                <path id="hl-arc" d="M 128 540 A 412 412 0 0 1 952 540"/>
+              </defs>
+              <g class="l-ring"><circle cx="540" cy="540" r="522" fill="none" stroke="currentColor" stroke-width="9"/><circle cx="540" cy="540" r="496" fill="none" stroke="currentColor" stroke-width="2"/></g>
+              <g clip-path="url(#hl-clip)"><g class="l-hair"><g class="l-sway"><rect x="-100" y="-100" width="1280" height="1280" fill="currentColor" mask="url(#hl-mask)"/></g></g></g>
+              <g class="l-arc"><text class="lg-arc" text-anchor="middle"><textPath href="#hl-arc" startOffset="50%">ESTILO Y BELLEZA</textPath></text></g>
+              <g class="l-eli"><text class="lg-eli" x="570" y="690">Eli</text></g>
+              <g class="l-bfs" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round">
+                <path d="M628 948C690 925 748 905 796 846C820 816 836 800 846 786" stroke-width="3" stroke-dasharray="1 13"/>
+                <g transform="translate(420 330) rotate(-14) scale(1.5)"><g class="bfd" style="--bd:5.5s"><g class="bf" style="--fs:1.1s"><use href="#lg-bf"/></g></g></g>
+                <g transform="translate(508 438) rotate(16) scale(.9)"><g class="bfd" style="--bd:4.2s"><g class="bf" style="--fs:.9s"><use href="#lg-bf"/></g></g></g>
+                <g transform="translate(330 440) rotate(-30) scale(.62)"><g class="bfd" style="--bd:6.4s"><g class="bf" style="--fs:.8s"><use href="#lg-bf"/></g></g></g>
+                <g transform="translate(742 842) rotate(14) scale(1.25)"><g class="bfd" style="--bd:5s"><g class="bf" style="--fs:1.2s"><use href="#lg-bf"/></g></g></g>
+                <g transform="translate(868 764) rotate(-18) scale(.78)"><g class="bfd" style="--bd:3.8s"><g class="bf" style="--fs:.85s"><use href="#lg-bf"/></g></g></g>
+                <g transform="translate(650 912) rotate(-10) scale(.58)"><g class="bfd" style="--bd:6s"><g class="bf" style="--fs:.75s"><use href="#lg-bf"/></g></g></g>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <p class="hint" id="hint">✦ Toca el logo</p>
       </div>
     </div>
   </div>
@@ -540,6 +605,98 @@ const WA_TEXT  = "Hola, quisiera agendar una cita de uñas en Estilo y Belleza E
   });
   lb.addEventListener("click", e => { if(e.target !== lbImg) closeLb(); });
   addEventListener("keydown", e => { if(e.key==="Escape"){ closeLb(); closeMenu(); } });
+})();
+
+/* ── Inicio interactivo: el logo reacciona al cursor / dedo, y suelta mariposas al tocarlo ── */
+(function(){
+  const stage = document.getElementById("stage"), medal = document.getElementById("medal"), hint = document.getElementById("hint");
+  const hero = document.querySelector(".hero");
+  if (!stage || !medal) return;
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const rand = (a,b) => a + Math.random()*(b-a);
+  const clamp = (v) => Math.max(-1, Math.min(1, v));
+  const COLORS = ["#ffffff","#e4c9c0","#d8c2a0","#f7f3ee"];
+
+  // Profundidad: --mx / --my (-1..1) con suavizado; en reposo oscila solo para que se note también en celular
+  let tx = 0, ty = 0, cx = 0, cy = 0, lastPtr = -1e9, running = false, raf = 0;
+  const loop = (t) => {
+    if (t - lastPtr > 2600){ tx = Math.sin(t/2300)*.55; ty = Math.cos(t/3100)*.4; }
+    cx += (tx - cx) * .07; cy += (ty - cy) * .07;
+    stage.style.setProperty("--mx", cx.toFixed(3));
+    stage.style.setProperty("--my", cy.toFixed(3));
+    raf = requestAnimationFrame(loop);
+  };
+  const start = () => { if(!running && !reduce){ running = true; raf = requestAnimationFrame(loop); } };
+  const stop  = () => { running = false; cancelAnimationFrame(raf); };
+  new IntersectionObserver(es => es[0].isIntersecting ? start() : stop(), {threshold:0}).observe(hero);
+
+  hero.addEventListener("pointermove", e => {
+    const r = stage.getBoundingClientRect();
+    tx = clamp((e.clientX - (r.left + r.width/2)) / (r.width*.9));
+    ty = clamp((e.clientY - (r.top + r.height/2)) / (r.height*.9));
+    lastPtr = performance.now();
+    const h = hero.getBoundingClientRect();
+    hero.style.setProperty("--gx", (e.clientX - h.left) + "px");
+    hero.style.setProperty("--gy", (e.clientY - h.top) + "px");
+  }, {passive:true});
+
+  // Brillitos que siguen el cursor sobre el logo
+  const local = (e) => { const r = stage.getBoundingClientRect(); return {x:e.clientX - r.left, y:e.clientY - r.top}; };
+  let lastSp = 0;
+  const sparkle = (x, y, big) => {
+    const s = document.createElement("span");
+    s.className = "sp"; s.textContent = "✦";
+    s.style.color = COLORS[(Math.random()*COLORS.length)|0];
+    s.style.fontSize = (big ? rand(14,24) : rand(9,15)) + "px";
+    stage.appendChild(s);
+    const dx = rand(-26,26), dy = rand(-46,-14);
+    s.animate([
+      {transform:`translate(${x}px,${y}px) scale(.3) rotate(0deg)`, opacity:0},
+      {transform:`translate(${x+dx*.5}px,${y+dy*.5}px) scale(1) rotate(60deg)`, opacity:1, offset:.35},
+      {transform:`translate(${x+dx}px,${y+dy}px) scale(.2) rotate(140deg)`, opacity:0}
+    ], {duration:rand(800,1300), easing:"ease-out"}).onfinish = () => s.remove();
+  };
+  medal.addEventListener("pointermove", e => {
+    if (reduce || e.pointerType === "touch") return;
+    const now = performance.now(); if (now - lastSp < 70) return; lastSp = now;
+    const p = local(e); sparkle(p.x, p.y, false);
+  });
+  medal.addEventListener("pointerenter", e => { if (e.pointerType !== "touch") medal.classList.add("excited"); });
+  medal.addEventListener("pointerleave", () => medal.classList.remove("excited"));
+
+  // Mariposas que salen volando desde el logo
+  const burst = (n, fromEvent) => {
+    const sr = stage.getBoundingClientRect();
+    const ox = fromEvent ? fromEvent.clientX - sr.left : sr.width/2;
+    const oy = fromEvent ? fromEvent.clientY - sr.top  : sr.height/2;
+    for (let i = 0; i < n; i++){
+      const size = rand(30, 62);
+      const wrap = document.createElement("div");
+      wrap.innerHTML = `<svg class="fly" viewBox="-80 -80 160 160" width="${size}" height="${size}" style="color:${COLORS[(Math.random()*COLORS.length)|0]}"><g fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"><g class="bf" style="--fs:${rand(.16,.26).toFixed(2)}s"><use href="#lg-bf"/></g></g></svg>`;
+      const el = wrap.firstChild; stage.appendChild(el);
+      const ang = rand(0, Math.PI*2), dist = rand(sr.width*.35, sr.width*.75), wob = rand(-80, 80);
+      const x1 = ox + Math.cos(ang)*dist*.45 + wob, y1 = oy + Math.sin(ang)*dist*.45 - rand(20,60);
+      const x2 = ox + Math.cos(ang)*dist,           y2 = oy + Math.sin(ang)*dist - rand(40,120);
+      const rot = (a) => a*180/Math.PI + 90;
+      const h = size/2;
+      el.animate([
+        {transform:`translate(${ox-h}px,${oy-h}px) scale(.2) rotate(${rot(ang)}deg)`, opacity:0},
+        {transform:`translate(${x1-h}px,${y1-h}px) scale(1) rotate(${rot(ang)+rand(-25,25)}deg)`, opacity:1, offset:.4},
+        {transform:`translate(${x2-h}px,${y2-h}px) scale(.8) rotate(${rot(ang)+rand(-40,40)}deg)`, opacity:0}
+      ], {duration:rand(2400, 4200), easing:"cubic-bezier(.25,.6,.35,1)", delay:i*70}).onfinish = () => el.remove();
+    }
+    for (let i = 0; i < 10; i++) sparkle(ox + rand(-70,70), oy + rand(-70,70), true);
+  };
+  const activate = (e) => {
+    medal.classList.remove("pop"); void medal.offsetWidth; medal.classList.add("pop");
+    hint && hint.classList.add("off");
+    burst(9, e && e.clientX !== undefined && e.detail !== 0 ? e : null);
+  };
+  medal.addEventListener("click", activate);
+  medal.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " "){ e.preventDefault(); activate(); } });
+
+  // Saludo: un par de mariposas salen solas al cargar
+  if (!reduce) setTimeout(() => burst(3, null), 2600);
 })();
 </script>
 </body>
