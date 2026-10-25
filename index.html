@@ -3,57 +3,65 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Estilo y Belleza Eli · Salón de belleza en Medellín</title>
-<meta name="description" content="Uñas semipermanentes, keratina, alisados, color, corte, peinados, cejas y maquillaje profesional en Medellín. Agenda tu cita con Estilo y Belleza Eli.">
-<meta name="theme-color" content="#0b0b0b">
-<link rel="icon" href="logo-marca.svg" type="image/svg+xml">
+<title>Estilo y Belleza Eli · Uñas en Medellín</title>
+<meta name="description" content="Uñas semipermanentes, francés, degradado, nail art y efecto chrome en Medellín. Agenda tu cita con Estilo y Belleza Eli por WhatsApp.">
+<meta name="theme-color" content="#0d0d0f">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Manrope:wght@400;500;600;700&family=Pinyon+Script&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#0b0b0b; --ink-2:#161616; --line:#2a2a2a;
-    --paper:#f6f4f0; --white:#fff; --mute:#9a9a9a; --mute-dark:#5d5d5d;
+    --ink:#0d0d0f; --ink-2:#151517; --ink-3:#1c1b1d; --line:rgba(255,255,255,.12);
+    --paper:#f7f3ee; --paper-2:#efe8e0; --white:#fff;
+    --nude:#e4c9c0; --champagne:#d8c2a0;
+    --mute:#a3a09b; --mute-dark:#66625c;
     --serif:"Cormorant Garamond", Georgia, "Times New Roman", serif;
     --sans:"Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
     --gutter:clamp(20px,5vw,72px);
     --max:1240px;
+    --ease:cubic-bezier(.2,.7,.2,1);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth;scroll-padding-top:84px}
   body{font-family:var(--sans);background:var(--ink);color:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  /* grano sutil para dar profundidad al fondo */
+  body::before{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.045;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
   img{display:block;max-width:100%}
   a{color:inherit;text-decoration:none}
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
-  .eyebrow{font-size:.74rem;letter-spacing:.28em;text-transform:uppercase;color:var(--mute);font-weight:600}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);position:relative}
+  .eyebrow{font-size:.74rem;letter-spacing:.28em;text-transform:uppercase;color:var(--champagne);font-weight:600}
   h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.02;letter-spacing:-.01em}
-  h2{font-size:clamp(2.4rem,5.4vw,4.4rem)}
+  h2{font-size:clamp(2.4rem,5.2vw,4.2rem)}
   em{font-style:italic}
+  .grad{background:linear-gradient(100deg,#fff 0%,var(--nude) 45%,var(--champagne) 75%,#fff 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 7s ease-in-out infinite alternate}
+  @keyframes shine{to{background-position:100% 0}}
 
   /* Botones */
-  .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.95rem 1.6rem;border-radius:999px;font-weight:600;font-size:.92rem;letter-spacing:.02em;border:1.5px solid var(--white);transition:transform .25s,background .25s,color .25s,border-color .25s;cursor:pointer}
+  .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.95rem 1.7rem;border-radius:999px;font-weight:600;font-size:.92rem;letter-spacing:.02em;border:1.5px solid rgba(255,255,255,.85);transition:transform .25s,background .25s,color .25s,border-color .25s,box-shadow .25s;cursor:pointer;font-family:var(--sans);background:none;color:inherit}
+  .btn svg{width:17px;height:17px;flex:none}
   .btn-solid{background:var(--white);color:var(--ink)}
-  .btn-solid:hover{transform:translateY(-2px);background:var(--paper)}
+  .btn-solid:hover{transform:translateY(-2px);box-shadow:0 12px 30px -10px rgba(228,201,192,.55)}
   .btn-line:hover{background:var(--white);color:var(--ink)}
-  .btn svg{width:16px;height:16px}
   .on-light .btn{border-color:var(--ink)}
   .on-light .btn-solid{background:var(--ink);color:var(--white)}
-  .on-light .btn-solid:hover{background:#222}
+  .on-light .btn-solid:hover{box-shadow:0 12px 30px -10px rgba(0,0,0,.45)}
   .on-light .btn-line:hover{background:var(--ink);color:var(--white)}
 
-  /* Navegación */
-  header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,backdrop-filter .3s,border-color .3s;border-bottom:1px solid transparent}
-  header.scrolled{background:rgba(11,11,11,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+  /* Navegacion */
+  header{position:fixed;inset:0 0 auto 0;z-index:70;transition:background .3s,backdrop-filter .3s,border-color .3s;border-bottom:1px solid transparent}
+  header.scrolled{background:rgba(13,13,15,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:80px}
   .brand{display:flex;align-items:center;gap:.8rem}
-  .brand svg{width:44px;height:44px}
-  .brand-name{font-family:var(--serif);font-size:1.25rem;line-height:1;font-weight:600;letter-spacing:.01em}
-  .brand-name small{display:block;font-family:var(--sans);font-size:.58rem;letter-spacing:.34em;text-transform:uppercase;color:var(--mute);margin-top:.35rem;font-weight:600}
+  .brand svg{width:60px;height:60px;color:#fff;flex:none}
+  .brand-name{font-family:var(--serif);font-size:1.3rem;line-height:1;font-weight:600}
+  .brand-name small{display:block;font-family:var(--sans);font-size:.58rem;letter-spacing:.34em;text-transform:uppercase;color:var(--mute);margin-top:.4rem;font-weight:600}
   .links{display:flex;gap:2.2rem;font-size:.86rem;font-weight:500}
-  .links a{position:relative;color:#d8d8d8;transition:color .2s}
-  .links a::after{content:"";position:absolute;left:0;bottom:-6px;height:1px;width:0;background:#fff;transition:width .3s}
+  .links a{position:relative;color:#dcdcdc;transition:color .2s}
+  .links a::after{content:"";position:absolute;left:0;bottom:-6px;height:1px;width:0;background:var(--nude);transition:width .3s}
   .links a:hover{color:#fff}.links a:hover::after{width:100%}
-  .nav .btn{padding:.65rem 1.2rem;font-size:.82rem}
+  .nav>.btn{padding:.65rem 1.2rem;font-size:.82rem}
   .burger{display:none;background:none;border:0;color:#fff;width:44px;height:44px;cursor:pointer}
   .burger span{display:block;width:24px;height:1.5px;background:#fff;margin:6px auto;transition:transform .3s,opacity .3s}
   .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
@@ -61,211 +69,285 @@
   .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
   .drawer{display:none}
 
+  /* Logo (texto del simbolo) */
+  .lg-arc{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:84px;letter-spacing:.2em;fill:currentColor}
+  .lg-eli{font-family:'Pinyon Script','Snell Roundhand',cursive;font-size:330px;fill:currentColor}
+
   /* Hero */
-  .hero{position:relative;min-height:100svh;padding:120px 0 72px;display:flex;align-items:center;overflow:hidden;
-    background:radial-gradient(900px 600px at 85% 20%,#1d1d1d 0,transparent 60%),var(--ink)}
-  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,5vw,72px);align-items:center}
-  .hero h1{font-size:clamp(3.4rem,9vw,7.6rem);margin:1.2rem 0 1.6rem}
-  .hero h1 em{display:block;color:transparent;-webkit-text-stroke:1.5px #fff}
-  .hero p.lead{max-width:30rem;color:#c9c9c9;font-size:1.05rem}
+  .hero{position:relative;min-height:100svh;padding:124px 0 84px;display:flex;align-items:center;overflow:hidden;
+    background:
+      radial-gradient(800px 520px at 88% 12%,rgba(228,201,192,.20),transparent 62%),
+      radial-gradient(700px 520px at 6% 96%,rgba(216,194,160,.14),transparent 60%),
+      linear-gradient(165deg,#1a1719 0%,#0d0d0f 58%,#141214 100%)}
+  .orb{position:absolute;border-radius:50%;filter:blur(60px);pointer-events:none;animation:drift 14s ease-in-out infinite alternate}
+  .orb.o1{width:340px;height:340px;right:-80px;top:30%;background:rgba(228,201,192,.16)}
+  .orb.o2{width:260px;height:260px;left:18%;bottom:-60px;background:rgba(216,194,160,.12);animation-delay:-6s}
+  @keyframes drift{to{transform:translate(-30px,24px) scale(1.12)}}
+  .hero-grid{display:grid;grid-template-columns:1fr 1.02fr;gap:clamp(28px,5vw,80px);align-items:center}
+  .hero h1{font-size:clamp(3.3rem,8.2vw,7rem);margin:1.2rem 0 1.5rem}
+  .hero h1 em{display:block}
+  .hero p.lead{max-width:30rem;color:#cfcbc6;font-size:1.05rem}
   .cta-row{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.2rem}
-  .hero-meta{display:flex;gap:2.4rem;margin-top:3rem;padding-top:1.6rem;border-top:1px solid var(--line);flex-wrap:wrap}
-  .hero-meta b{display:block;font-family:var(--serif);font-size:2.2rem;font-weight:600;line-height:1}
-  .hero-meta span{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
-  .collage{position:relative;height:min(76vh,640px);min-height:440px}
-  .arch{position:absolute;overflow:hidden;border:1px solid #333;background:#111}
-  .arch img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
-  .arch:hover img{transform:scale(1.06)}
-  .a1{left:0;top:6%;width:52%;height:78%;border-radius:999px 999px 18px 18px}
-  .a2{right:0;top:0;width:42%;height:46%;border-radius:18px 18px 999px 999px}
-  .a3{right:6%;bottom:0;width:40%;height:46%;border-radius:18px}
-  .spark{position:absolute;color:#fff;animation:tw 3.6s ease-in-out infinite}
-  .spark.s1{width:34px;left:46%;top:2%}.spark.s2{width:20px;left:54%;bottom:6%;animation-delay:1.4s}
-  @keyframes tw{0%,100%{opacity:.25;transform:scale(.8) rotate(0)}50%{opacity:1;transform:scale(1.1) rotate(20deg)}}
-  .scroll-hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+  .points{display:flex;flex-wrap:wrap;gap:.6rem 1.8rem;margin-top:2.6rem;padding-top:1.5rem;border-top:1px solid var(--line);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+  .points span{display:inline-flex;align-items:center;gap:.6rem}
+  .points span::before{content:"✦";color:var(--champagne);font-size:.7rem}
+
+  /* Mosaico de unas con aparicion */
+  .mosaic{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:14px;height:min(72vh,620px);min-height:440px;position:relative}
+  .tile{position:relative;animation:floaty 8s ease-in-out infinite;animation-delay:var(--f,0s)}
+  .tile .in{position:absolute;inset:0;overflow:hidden;border-radius:26px;background:#1b1b1d;border:1px solid rgba(255,255,255,.14);
+    clip-path:inset(0 0 100% 0 round 26px);opacity:0;animation:reveal 1.2s var(--ease) forwards;animation-delay:var(--d,0s)}
+  .tile img{width:100%;height:100%;object-fit:cover;transform:scale(1.25);animation:settle 2.2s var(--ease) forwards;animation-delay:var(--d,0s)}
+  .tile::after{content:"";position:absolute;inset:0;border-radius:26px;pointer-events:none;background:linear-gradient(180deg,transparent 55%,rgba(13,13,15,.7) 100%);opacity:0;animation:fadein 1s ease forwards;animation-delay:calc(var(--d,0s) + .8s)}
+  .tile figcaption{position:absolute;left:18px;bottom:14px;z-index:2;font-family:var(--serif);font-style:italic;font-size:1.35rem;opacity:0;animation:fadein 1s ease forwards;animation-delay:calc(var(--d,0s) + 1s)}
+  .t1{grid-row:1 / span 2;--d:.2s;--f:0s}
+  .t1 figcaption{top:16px;bottom:auto;text-shadow:0 2px 14px rgba(0,0,0,.7)}
+  .t2{--d:.55s;--f:-3s}
+  .t3{--d:.9s;--f:-5s}
+  .t4{position:absolute;left:-22px;bottom:34px;width:34%;aspect-ratio:3/4;--d:1.3s;--f:-2s;z-index:3}
+  .t4 .in{border:3px solid var(--ink);box-shadow:0 24px 50px -16px rgba(0,0,0,.7)}
+  .t4::after,.t4 figcaption{display:none}
+  .chip{position:absolute;right:-8px;top:46%;z-index:4;padding:.55rem 1rem;border-radius:999px;background:rgba(247,243,238,.92);color:var(--ink);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;display:flex;gap:.5rem;align-items:center;box-shadow:0 14px 34px -12px rgba(0,0,0,.6);opacity:0;animation:fadein 1s ease forwards 1.8s}
+  @keyframes reveal{to{clip-path:inset(0 0 0 0 round 26px);opacity:1}}
+  @keyframes settle{to{transform:scale(1)}}
+  @keyframes fadein{to{opacity:1}}
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
 
   /* Marquee */
-  .marquee{border-block:1px solid var(--line);background:var(--ink);overflow:hidden;padding:1.1rem 0}
-  .track{display:flex;gap:3rem;width:max-content;animation:slide 38s linear infinite}
-  .track span{font-family:var(--serif);font-size:1.7rem;font-style:italic;white-space:nowrap;display:flex;align-items:center;gap:3rem}
-  .track span::after{content:"✦";font-style:normal;font-size:.9rem;color:var(--mute)}
+  .marquee{border-block:1px solid var(--line);background:var(--ink-2);overflow:hidden;padding:1.1rem 0}
+  .track{display:flex;gap:3rem;width:max-content;animation:slide 40s linear infinite}
+  .track span{font-family:var(--serif);font-size:1.6rem;font-style:italic;white-space:nowrap;display:flex;align-items:center;gap:3rem;color:#e9e4de}
+  .track span::after{content:"✦";font-style:normal;font-size:.8rem;color:var(--champagne)}
   @keyframes slide{to{transform:translateX(-50%)}}
 
-  section{padding:clamp(72px,11vw,150px) 0}
+  section{padding:clamp(76px,11vw,150px) 0;position:relative;overflow:hidden}
   .sec-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:clamp(36px,5vw,64px)}
   .sec-head p{max-width:26rem;color:var(--mute)}
 
-  /* Servicios (claro) */
-  .on-light{background:var(--paper);color:var(--ink)}
-  .on-light .eyebrow{color:var(--mute-dark)}
+  /* Claro */
+  .on-light{background:radial-gradient(700px 420px at 100% 0,rgba(228,201,192,.45),transparent 65%),radial-gradient(600px 400px at 0 100%,rgba(216,194,160,.30),transparent 65%),var(--paper);color:var(--ink)}
+  .on-light .eyebrow{color:#9a7b58}
   .on-light .sec-head p{color:var(--mute-dark)}
-  .services{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#d9d5ce;border:1px solid #d9d5ce}
-  .svc{background:var(--paper);padding:2rem 1.8rem 2.2rem;display:flex;flex-direction:column;gap:1rem;min-height:280px;position:relative;transition:background .35s,color .35s}
-  .svc:hover{background:var(--ink);color:#fff}
-  .svc .num{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--mute-dark);transition:color .35s}
-  .svc:hover .num{color:#888}
-  .svc svg{width:44px;height:44px;stroke:currentColor;fill:none;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
-  .svc h3{font-size:2rem}
-  .svc p{font-size:.93rem;color:var(--mute-dark);transition:color .35s}
-  .svc:hover p{color:#bdbdbd}
-  .svc .arrow{margin-top:auto;font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:.5rem}
-  .svc .arrow i{display:inline-block;transition:transform .3s;font-style:normal}
-  .svc:hover .arrow i{transform:translateX(6px)}
 
-  /* Galería */
-  .gallery{columns:4;column-gap:14px}
-  .shot{break-inside:avoid;margin-bottom:14px;position:relative;overflow:hidden;border-radius:14px;background:#111;cursor:zoom-in}
-  .shot img{width:100%;height:auto;transition:transform .9s cubic-bezier(.2,.7,.2,1),filter .5s;filter:grayscale(.15)}
-  .shot:hover img{transform:scale(1.05);filter:none}
-  .shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:2.4rem 1rem .9rem;background:linear-gradient(transparent,rgba(0,0,0,.78));font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;opacity:0;transform:translateY(8px);transition:.35s}
+  /* Servicios */
+  .services{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .svc{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 20px 50px -30px rgba(40,25,20,.35);display:flex;flex-direction:column;transition:transform .5s var(--ease),box-shadow .5s}
+  .svc:hover{transform:translateY(-8px);box-shadow:0 34px 60px -28px rgba(40,25,20,.45)}
+  .svc .ph{aspect-ratio:1/1;overflow:hidden;position:relative}
+  .svc .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+  .svc:hover .ph img{transform:scale(1.08)}
+  .svc .ph::after{content:attr(data-n);position:absolute;left:14px;top:12px;font-family:var(--serif);font-style:italic;font-size:1.2rem;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.45)}
+  .svc .tx{padding:1.4rem 1.4rem 1.6rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
+  .svc h3{font-size:1.75rem;line-height:1.05}
+  .svc p{font-size:.9rem;color:var(--mute-dark)}
+  .svc .go{margin-top:auto;padding-top:.8rem;font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:.5rem}
+  .svc .go i{font-style:normal;transition:transform .3s}
+  .svc:hover .go i{transform:translateX(6px)}
+  .more{margin-top:2.4rem;text-align:center;color:var(--mute-dark);font-size:.9rem}
+  .more b{color:var(--ink);font-weight:600}
+
+  /* Galeria */
+  .gallery-sec{background:radial-gradient(800px 500px at 0 0,rgba(228,201,192,.14),transparent 62%),radial-gradient(700px 500px at 100% 100%,rgba(216,194,160,.10),transparent 62%),var(--ink-2)}
+  .gallery{columns:3;column-gap:16px}
+  .shot{break-inside:avoid;margin-bottom:16px;position:relative;overflow:hidden;border-radius:20px;background:#111;cursor:zoom-in;border:1px solid rgba(255,255,255,.08)}
+  .shot img{width:100%;height:auto;transition:transform .9s var(--ease)}
+  .shot:hover img{transform:scale(1.05)}
+  .shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:2.6rem 1.1rem .9rem;background:linear-gradient(transparent,rgba(0,0,0,.78));font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;opacity:0;transform:translateY(8px);transition:.35s}
   .shot:hover figcaption,.shot:focus-visible figcaption{opacity:1;transform:none}
-  .shot:focus-visible{outline:2px solid #fff;outline-offset:3px}
+  .shot:focus-visible{outline:2px solid var(--nude);outline-offset:3px}
   .gal-foot{display:flex;justify-content:center;margin-top:2.4rem}
 
-  /* Sobre / proceso */
-  .about{background:var(--ink-2);border-block:1px solid var(--line)}
-  .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,90px);align-items:center}
-  .about-img{position:relative;aspect-ratio:4/5;border-radius:999px 999px 20px 20px;overflow:hidden;border:1px solid #333}
-  .about-img img{width:100%;height:100%;object-fit:cover}
+  /* Eli */
+  .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(36px,7vw,100px);align-items:center}
+  .portrait{position:relative;max-width:440px;margin:0 auto;width:100%}
+  .portrait .frame{aspect-ratio:4/5;border-radius:999px 999px 26px 26px;overflow:hidden;position:relative;box-shadow:0 40px 70px -34px rgba(40,25,20,.55)}
+  .portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+  .portrait .frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(13,13,15,.35)),linear-gradient(120deg,rgba(228,201,192,.18),transparent 50%)}
+  .portrait::before{content:"";position:absolute;inset:-16px -16px 16px 16px;border:1px solid #b79c78;border-radius:999px 999px 30px 30px;z-index:-1}
+  .portrait .sig{position:absolute;right:-14px;bottom:26px;background:var(--ink);color:#fff;padding:.9rem 1.3rem;border-radius:16px;box-shadow:0 20px 40px -18px rgba(0,0,0,.6)}
+  .portrait .sig b{display:block;font-family:'Pinyon Script',cursive;font-weight:400;font-size:2.2rem;line-height:1}
+  .portrait .sig span{font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--champagne);font-weight:600}
   .about h2{margin:1rem 0 1.4rem}
-  .about p{color:#c9c9c9;max-width:34rem}
-  .steps{list-style:none;margin-top:2.4rem;display:grid;gap:1.4rem;counter-reset:s}
-  .steps li{counter-increment:s;display:grid;grid-template-columns:3rem 1fr;gap:1rem;padding-top:1.2rem;border-top:1px solid var(--line)}
-  .steps li::before{content:"0" counter(s);font-family:var(--serif);font-style:italic;font-size:1.6rem;color:var(--mute)}
-  .steps b{display:block;font-weight:600;margin-bottom:.15rem}
-  .steps span{color:var(--mute);font-size:.93rem}
+  .about p{color:var(--mute-dark);max-width:34rem}
+  .steps{list-style:none;margin-top:2.2rem;display:grid;gap:1.2rem;counter-reset:s}
+  .steps li{counter-increment:s;display:grid;grid-template-columns:3rem 1fr;gap:1rem;padding-top:1.1rem;border-top:1px solid rgba(13,13,15,.15)}
+  .steps li::before{content:"0" counter(s);font-family:var(--serif);font-style:italic;font-size:1.6rem;color:#9a7b58}
+  .steps b{display:block;font-weight:600;margin-bottom:.1rem}
+  .steps span{color:var(--mute-dark);font-size:.93rem}
 
-  /* CTA */
-  .cta{text-align:center;position:relative;overflow:hidden}
-  .cta h2{font-size:clamp(3rem,9vw,7.4rem);margin:1.2rem auto 1.8rem;max-width:14ch}
-  .cta h2 em{color:transparent;-webkit-text-stroke:1.5px #fff}
-  .cta p{color:#c9c9c9;max-width:32rem;margin:0 auto 2.2rem}
-  .cta .cta-row{justify-content:center}
-  .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:clamp(48px,7vw,90px);text-align:left}
-  .contact-grid div{background:var(--ink);padding:1.6rem 1.6rem 1.8rem}
-  .contact-grid .eyebrow{display:block;margin-bottom:.6rem}
-  .contact-grid a:hover{text-decoration:underline;text-underline-offset:4px}
+  /* Ubicacion y contacto */
+  .where{background:radial-gradient(800px 520px at 100% 0,rgba(228,201,192,.16),transparent 62%),linear-gradient(180deg,#121113,#0d0d0f)}
+  .where-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,64px);align-items:stretch}
+  .where h2{margin:1rem 0 1.2rem}
+  .where p.lead{color:#cfcbc6;max-width:28rem}
+  .info{margin-top:1.8rem;display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+  .info div{background:var(--ink-3);padding:1rem 1.3rem;display:flex;flex-direction:column;gap:.15rem}
+  .info .eyebrow{font-size:.66rem;color:var(--mute)}
+  .info a:hover{text-decoration:underline;text-underline-offset:4px}
+  .where .cta-row{margin-top:1.8rem}
+  .map{position:relative;border-radius:26px;overflow:hidden;border:1px solid var(--line);min-height:420px;background:#18171a}
+  .map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) invert(.92) contrast(.88) brightness(.95)}
+  .map .pin{position:absolute;left:14px;bottom:14px;z-index:2;background:rgba(247,243,238,.95);color:var(--ink);border-radius:14px;padding:.7rem 1rem;font-size:.8rem;font-weight:600;display:flex;gap:.6rem;align-items:center}
+  .tip{margin-top:1.1rem;font-size:.85rem;color:var(--mute)}
+  .final{text-align:center;margin-top:clamp(64px,9vw,110px);padding-top:clamp(48px,7vw,80px);border-top:1px solid var(--line)}
+  .final .big{width:150px;height:150px;color:#fff;margin:0 auto 1.2rem}
+  .final h2{max-width:16ch;margin:0 auto 1.4rem}
+  .final p{color:#cfcbc6;max-width:30rem;margin:0 auto 2rem}
+  .final .cta-row{justify-content:center}
 
-  footer{border-top:1px solid var(--line);padding:2.2rem 0;color:var(--mute);font-size:.82rem}
+  footer{background:#08080a;border-top:1px solid var(--line);padding:2.2rem 0;color:var(--mute);font-size:.82rem}
   .foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
-  .foot .brand svg{width:34px;height:34px}
+  .foot .brand svg{width:44px;height:44px}
+
+  /* Boton flotante de WhatsApp */
+  .fab{position:fixed;right:18px;bottom:18px;z-index:80;display:flex;align-items:center;gap:.6rem;padding:.85rem 1.2rem;border-radius:999px;background:#fff;color:var(--ink);font-weight:700;font-size:.85rem;box-shadow:0 18px 40px -12px rgba(0,0,0,.65);transition:transform .25s,opacity .4s;opacity:0;pointer-events:none;transform:translateY(12px)}
+  .fab.show{opacity:1;pointer-events:auto;transform:none}
+  .fab:hover{transform:translateY(-2px)}
+  .fab svg{width:20px;height:20px;color:#128c4a}
 
   /* Lightbox */
   .lb{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;padding:24px}
   .lb.open{display:flex}
-  .lb img{max-height:88vh;max-width:min(92vw,720px);width:auto;border-radius:12px}
-  .lb button{position:absolute;top:18px;right:18px;background:none;border:1px solid #444;color:#fff;width:46px;height:46px;border-radius:50%;font-size:1.3rem;cursor:pointer}
+  .lb img{max-height:88vh;max-width:min(92vw,820px);width:auto;border-radius:14px}
+  .lb button{position:absolute;top:18px;right:18px;background:none;border:1px solid #555;color:#fff;width:46px;height:46px;border-radius:50%;font-size:1.3rem;cursor:pointer}
 
-  /* Reveal */
-  .rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+  /* Aparicion al hacer scroll */
+  .rv{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s var(--ease)}
   .rv.in{opacity:1;transform:none}
   .d1{transition-delay:.12s}.d2{transition-delay:.24s}.d3{transition-delay:.36s}
 
+  @media (max-width:1060px){
+    .services{grid-template-columns:repeat(2,1fr)}
+  }
   @media (max-width:980px){
     .links,.nav>.btn{display:none}
     .burger{display:block}
-    .drawer{position:fixed;inset:76px 0 auto 0;background:rgba(11,11,11,.97);border-bottom:1px solid var(--line);padding:1rem var(--gutter) 1.6rem;flex-direction:column;gap:.2rem;z-index:49}
+    .drawer{position:fixed;inset:80px 0 auto 0;background:rgba(13,13,15,.98);border-bottom:1px solid var(--line);padding:1rem var(--gutter) 1.6rem;flex-direction:column;gap:.2rem;z-index:69}
     .drawer.open{display:flex}
     .drawer a{padding:.95rem 0;font-family:var(--serif);font-size:1.8rem;border-bottom:1px solid var(--line)}
-    .drawer .btn{margin-top:1.2rem;justify-content:center;font-family:var(--sans);font-size:.95rem;border-bottom:1.5px solid #fff}
-    .hero-grid,.about-grid{grid-template-columns:1fr}
-    .collage{height:420px;min-height:0;order:-1;max-width:460px;width:100%;margin:0 auto}
-    .hero{align-items:flex-start;padding-top:104px}
-    .services{grid-template-columns:repeat(2,1fr)}
-    .gallery{columns:3}
-    .contact-grid{grid-template-columns:1fr}
-    .about-img{max-width:420px;margin:0 auto}
-    .scroll-hint{display:none}
+    .drawer .btn{margin-top:1.2rem;justify-content:center;font-family:var(--sans);font-size:.95rem;border:1.5px solid #fff}
+    .hero-grid,.about-grid,.where-grid{grid-template-columns:1fr}
+    .hero{align-items:flex-start;padding-top:100px}
+    .mosaic{order:-1;height:340px;min-height:0;max-width:520px;width:100%;margin:0 auto 10px;grid-template-columns:1.15fr .85fr;gap:10px}
+    .gallery{columns:2}
+    .map{min-height:360px}
   }
   @media (max-width:600px){
     .services{grid-template-columns:1fr}
-    .svc{min-height:0}
-    .gallery{columns:2;column-gap:10px}.shot{margin-bottom:10px}
-    .hero-meta{gap:1.6rem}
+    .gallery{columns:2;column-gap:10px}.shot{margin-bottom:10px;border-radius:14px}
     .brand-name small{display:none}
+    .brand svg{width:52px;height:52px}
+    .t4{left:-8px;bottom:22px;width:36%}
+    .chip{right:4px;font-size:.62rem}
+    .portrait .sig{right:-6px}
+    .fab span{display:none}.fab{padding:.95rem}
   }
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
-    .track,.spark{animation:none}
+    .track,.orb,.tile,.grad{animation:none}
+    .tile .in{animation:none;clip-path:none;opacity:1}
+    .tile img{animation:none;transform:none}
+    .tile::after,.tile figcaption,.chip{animation:none;opacity:1}
     .rv{opacity:1;transform:none;transition:none}
   }
 </style>
 </head>
 <body>
 
-<!-- Símbolos reutilizables -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<!-- Simbolos reutilizables -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
-    <symbol id="mark" viewBox="0 0 100 100">
-      <circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="2"/>
-      <circle cx="50" cy="50" r="41" fill="none" stroke="currentColor" stroke-width=".7"/>
-      <path d="M62 29H40.5a4.5 4.5 0 0 0-4.5 4.5v33a4.5 4.5 0 0 0 4.5 4.5H62M36 50h20" fill="none" stroke="currentColor" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path transform="translate(5 -6)" d="M71 22c.9 4.6 2.4 6.1 7 7-4.6.9-6.1 2.4-7 7-.9-4.6-2.4-6.1-7-7 4.600-.9 6.100-2.400 7-7Z" fill="currentColor"/>
+    <clipPath id="lg-clip"><circle cx="540" cy="540" r="510"/></clipPath>
+    <mask id="lg-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1080" height="1080">
+      <image href="img/mujer-blanco.png" x="30" y="480" width="570" height="595"/>
+    </mask>
+    <path id="lg-arc" d="M 128 540 A 412 412 0 0 1 952 540"/>
+    <g id="lg-bf">
+      <path d="M0 -4C-6 -34 -42 -64 -64 -50C-80 -38 -58 -8 0 -4ZM0 -4C6 -34 42 -64 64 -50C80 -38 58 -8 0 -4Z"/>
+      <path d="M0 0C-26 6 -52 18 -44 42C-36 62 -10 44 0 0ZM0 0C26 6 52 18 44 42C36 62 10 44 0 0Z"/>
+      <path d="M0 -14V38M0 -14C-4 -30 -12 -38 -20 -42M0 -14C4 -30 12 -38 20 -42"/>
+      <path d="M-34 -36C-22 -34 -14 -26 -10 -16M34 -36C22 -34 14 -26 10 -16" stroke-width="3"/>
+    </g>
+    <symbol id="logo" viewBox="0 0 1080 1080">
+      <circle cx="540" cy="540" r="522" fill="none" stroke="currentColor" stroke-width="9"/>
+      <circle cx="540" cy="540" r="496" fill="none" stroke="currentColor" stroke-width="2"/>
+      <g clip-path="url(#lg-clip)"><rect width="1080" height="1080" fill="currentColor" mask="url(#lg-mask)"/></g>
+      <text class="lg-arc" text-anchor="middle"><textPath href="#lg-arc" startOffset="50%">ESTILO Y BELLEZA</textPath></text>
+      <text class="lg-eli" x="570" y="690">Eli</text>
+      <g transform="translate(40 36)" fill="none" stroke="currentColor" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+        <rect x="690" y="800" width="116" height="140" rx="26"/>
+        <path d="M722 800v-26h52v26"/>
+        <rect x="718" y="700" width="56" height="74" rx="10" fill="currentColor"/>
+        <path d="M706 840c20-14 70 14 88 0"/>
+      </g>
+      <g fill="none" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round">
+        <g transform="translate(420 330) rotate(-14) scale(1.5)"><use href="#lg-bf"/></g>
+        <g transform="translate(508 438) rotate(16) scale(.9)"><use href="#lg-bf"/></g>
+        <g transform="translate(330 440) rotate(-30) scale(.62)"><use href="#lg-bf"/></g>
+      </g>
     </symbol>
-    <symbol id="spark" viewBox="0 0 24 24"><path d="M12 0c.9 7.200 4.800 11.100 12 12-7.200.9-11.100 4.800-12 12-.9-7.200-4.800-11.100-12-12 7.200-.9 11.100-4.800 12-12Z" fill="currentColor"/></symbol>
-    <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.3-1.4A9.9 9.9 0 1 0 12.04 2Zm0 1.8a8.1 8.1 0 1 1-4.2 15l-.3-.2-3.100.8.8-3-.2-.3a8.1 8.1 0 0 1 7-12.300Zm-3 3.700c-.2 0-.5.100-.7.400-.3.300-1 1-1 2.400s1 2.800 1.200 3c.1.200 2 3.200 5 4.400 2.400 1 2.900.8 3.400.7.600-.1 1.700-.7 1.900-1.400.2-.7.200-1.200.2-1.400-.1-.1-.3-.2-.6-.4l-1.800-.9c-.3-.1-.5-.1-.7.100l-.8 1c-.1.200-.3.200-.6.100-.3-.1-1.200-.5-2.300-1.400-.8-.8-1.400-1.700-1.600-2-.1-.3 0-.4.100-.6l.4-.5c.1-.2.200-.3.300-.5.100-.2 0-.4 0-.5l-.8-2c-.2-.5-.4-.5-.6-.5Z"/></symbol>
+    <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.3-1.4A9.9 9.9 0 1 0 12.04 2Zm0 1.8a8.1 8.1 0 1 1-4.2 15l-.3-.2-3.1.8.8-3-.2-.3a8.1 8.1 0 0 1 7-12.3Zm-3 3.7c-.2 0-.5.1-.7.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.2 5 4.4 2.4 1 2.9.8 3.4.7.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4l-1.8-.9c-.3-.1-.5-.1-.7.1l-.8 1c-.1.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.1-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.8-2c-.2-.5-.4-.5-.6-.5Z"/></symbol>
     <symbol id="ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></symbol>
+    <symbol id="pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="10" r="2.6" fill="currentColor"/></symbol>
+    <symbol id="nav" viewBox="0 0 24 24"><path fill="currentColor" d="M21 3 3 10.5l7 2.5 2.5 7L21 3Z"/></symbol>
   </defs>
 </svg>
 
 <header id="top">
   <div class="wrap nav">
     <a href="#inicio" class="brand" aria-label="Estilo y Belleza Eli, inicio">
-      <svg aria-hidden="true"><use href="#mark"/></svg>
-      <span class="brand-name">Estilo y Belleza Eli<small>Salón · Medellín</small></span>
+      <svg aria-hidden="true"><use href="#logo"/></svg>
+      <span class="brand-name">Estilo y Belleza Eli<small>Uñas · Medellín</small></span>
     </a>
     <nav class="links" aria-label="Principal">
       <a href="#servicios">Servicios</a>
-      <a href="#galeria">Galería</a>
-      <a href="#salon">El salón</a>
-      <a href="#contacto">Contacto</a>
+      <a href="#galeria">Diseños</a>
+      <a href="#eli">Eli</a>
+      <a href="#ubicacion">Ubicación</a>
     </nav>
-    <a class="btn btn-solid" data-book href="#contacto"><svg aria-hidden="true"><use href="#wa"/></svg> Agendar cita</a>
+    <a class="btn btn-solid" data-book href="#ubicacion"><svg aria-hidden="true"><use href="#wa"/></svg> Agendar cita</a>
     <button class="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
   </div>
   <nav class="drawer" id="drawer" aria-label="Menú móvil">
     <a href="#servicios">Servicios</a>
-    <a href="#galeria">Galería</a>
-    <a href="#salon">El salón</a>
-    <a href="#contacto">Contacto</a>
-    <a class="btn btn-solid" data-book href="#contacto">Agendar cita</a>
+    <a href="#galeria">Diseños</a>
+    <a href="#eli">Eli</a>
+    <a href="#ubicacion">Ubicación</a>
+    <a class="btn btn-solid" data-book href="#ubicacion">Agendar por WhatsApp</a>
   </nav>
 </header>
 
 <main id="inicio">
   <!-- HERO -->
   <div class="hero">
+    <span class="orb o1"></span><span class="orb o2"></span>
     <div class="wrap hero-grid">
       <div>
-        <span class="eyebrow rv">Salón de belleza · Medellín</span>
-        <h1 class="rv d1">Tu estilo,<em>nuestro arte.</em></h1>
-        <p class="lead rv d2">Uñas, cabello, cejas y maquillaje con acabado profesional. Cada detalle pensado para que salgas del salón sintiéndote la mejor versión de ti.</p>
+        <span class="eyebrow rv">Nail studio · Medellín</span>
+        <h1 class="rv d1">Uñas que<em class="grad">cuentan tu estilo.</em></h1>
+        <p class="lead rv d2">Semipermanentes, francés, degradado y nail art hechos a mano, con acabado impecable y diseños pensados para ti.</p>
         <div class="cta-row rv d3">
-          <a class="btn btn-solid" data-book href="#contacto"><svg aria-hidden="true"><use href="#wa"/></svg> Agendar mi cita</a>
-          <a class="btn btn-line" href="#galeria">Ver trabajos</a>
+          <a class="btn btn-solid" data-book href="#ubicacion"><svg aria-hidden="true"><use href="#wa"/></svg> Agendar mi cita</a>
+          <a class="btn btn-line" href="#galeria">Ver diseños</a>
         </div>
-        <div class="hero-meta rv d3">
-          <div><b>3K+</b><span>En Instagram</span></div>
-          <div><b>7</b><span>Servicios</span></div>
-          <div><b>1 a 1</b><span>Atención personal</span></div>
-        </div>
+        <div class="points rv d3"><span>Cita por WhatsApp</span><span>Diseño a tu medida</span><span>Medellín</span></div>
       </div>
-      <div class="collage" aria-hidden="false">
-        <div class="arch a1 rv"><img src="img/01.jpg" alt="Maquillaje profesional y peinado recogido con rizos" loading="eager"></div>
-        <div class="arch a2 rv d1"><img src="img/02.jpg" alt="Uñas semipermanentes con diseño francés y detalles dorados" loading="eager"></div>
-        <div class="arch a3 rv d2"><img src="img/10.jpg" alt="Cabello largo, liso y brillante después de keratina" loading="eager"></div>
-        <svg class="spark s1" aria-hidden="true"><use href="#spark"/></svg>
-        <svg class="spark s2" aria-hidden="true"><use href="#spark"/></svg>
+
+      <div class="mosaic" aria-label="Diseños de uñas">
+        <figure class="tile t1"><div class="in"><img src="img/unas-frances.jpg" alt="Uñas con francés, detalles blancos y puntas doradas"></div><figcaption>Francés</figcaption></figure>
+        <figure class="tile t2"><div class="in"><img src="img/unas-mariposas.jpg" alt="Uñas con mariposas blancas y glitter" style="object-position:50% 60%"></div><figcaption>Mariposas</figcaption></figure>
+        <figure class="tile t3"><div class="in"><img src="img/unas-degradado.jpg" alt="Uñas con degradado rosa a blanco" style="object-position:30% 50%"></div><figcaption>Degradado</figcaption></figure>
+        <figure class="tile t4"><div class="in"><img src="img/unas-cafe.jpg" alt="Uñas semipermanentes en tono café" style="object-position:50% 82%"></div></figure>
+        <div class="chip">✦ Hecho a mano</div>
       </div>
     </div>
-    <div class="scroll-hint">Desliza</div>
   </div>
 
   <!-- MARQUEE -->
   <div class="marquee" aria-hidden="true">
     <div class="track">
-      <span>Uñas semipermanentes</span><span>Keratina</span><span>Alisados</span><span>Color y químicos</span><span>Corte y cepillado</span><span>Peinados y trenzas</span><span>Cejas</span><span>Maquillaje profesional</span>
-      <span>Uñas semipermanentes</span><span>Keratina</span><span>Alisados</span><span>Color y químicos</span><span>Corte y cepillado</span><span>Peinados y trenzas</span><span>Cejas</span><span>Maquillaje profesional</span>
+      <span>Semipermanentes</span><span>Francés</span><span>Degradado</span><span>Nail art</span><span>Mariposas</span><span>Efecto chrome</span><span>Diseños a mano alzada</span>
+      <span>Semipermanentes</span><span>Francés</span><span>Degradado</span><span>Nail art</span><span>Mariposas</span><span>Efecto chrome</span><span>Diseños a mano alzada</span>
     </div>
   </div>
 
@@ -275,76 +357,49 @@
       <div class="sec-head">
         <div>
           <span class="eyebrow rv">Lo que hacemos</span>
-          <h2 class="rv d1" style="margin-top:.8rem">Servicios <em>a tu medida</em></h2>
+          <h2 class="rv d1" style="margin-top:.8rem">Servicios <em>de uñas</em></h2>
         </div>
-        <p class="rv d2">Del cuidado diario a la ocasión especial. Escríbenos y te asesoramos según tu tipo de cabello, tus manos y tu estilo.</p>
+        <p class="rv d2">Elige un estilo o cuéntanos tu idea. Te asesoramos según la forma de tus manos, tu piel y la ocasión.</p>
       </div>
       <div class="services">
         <article class="svc rv">
-          <span class="num">01</span>
-          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M17 44V22c0-3 2-5 5-5h4c3 0 5 2 5 5v22"/><path d="M19 17V9c0-3 2-5 5-5s5 2 5 5v8"/><path d="M24 4v6"/></svg>
-          <h3>Uñas semipermanentes</h3>
-          <p>Color, diseños a mano alzada, francés y acabados con brillo que duran semanas sin perder su forma.</p>
-          <a class="arrow" data-book href="#contacto">Reservar <i>→</i></a>
+          <div class="ph" data-n="01"><img src="img/unas-cafe.jpg" alt="Uñas semipermanentes en tono café" style="object-position:50% 80%" loading="lazy"></div>
+          <div class="tx"><h3>Semipermanentes</h3><p>Color intenso y brillo espejo que dura semanas, sin dañar tu uña natural.</p><a class="go" data-book href="#ubicacion">Reservar <i>→</i></a></div>
         </article>
         <article class="svc rv d1">
-          <span class="num">02</span>
-          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 40c4-3 4-9 0-13s-4-10 0-14"/><path d="M18 42c5-4 5-11 0-16s-5-12 0-17"/><path d="M28 42c5-4 5-11 0-16s-5-12 0-17"/><path d="M38 40c4-3 4-9 0-13s-4-10 0-14"/></svg>
-          <h3>Keratina y alisados</h3>
-          <p>Tratamientos que controlan el frizz, devuelven brillo y suavidad, y facilitan el peinado de todos los días.</p>
-          <a class="arrow" data-book href="#contacto">Reservar <i>→</i></a>
+          <div class="ph" data-n="02"><img src="img/unas-degradado.jpg" alt="Uñas con francés y degradado" style="object-position:28% 50%" loading="lazy"></div>
+          <div class="tx"><h3>Francés y degradado</h3><p>Francés clásico, ombré y tonos nude con transición suave y elegante.</p><a class="go" data-book href="#ubicacion">Reservar <i>→</i></a></div>
         </article>
         <article class="svc rv d2">
-          <span class="num">03</span>
-          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M16 6h16l-2 10H18Z"/><path d="M18 16c-6 4-8 12-6 24h24c2-12 0-20-6-24"/><path d="M14 30h20"/></svg>
-          <h3>Color y químicos</h3>
-          <p>Tintes, mechas y cambios de look con productos profesionales y cuidado de la fibra capilar.</p>
-          <a class="arrow" data-book href="#contacto">Reservar <i>→</i></a>
+          <div class="ph" data-n="03"><img src="img/unas-mariposas.jpg" alt="Nail art de mariposas con glitter" style="object-position:50% 90%" loading="lazy"></div>
+          <div class="tx"><h3>Nail art</h3><p>Diseños a mano alzada: mariposas, líneas finas, glitter y detalles únicos.</p><a class="go" data-book href="#ubicacion">Reservar <i>→</i></a></div>
         </article>
-        <article class="svc rv">
-          <span class="num">04</span>
-          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="13" cy="35" r="6"/><circle cx="13" cy="13" r="6"/><path d="M18 17l22 22M18 31L40 9"/></svg>
-          <h3>Corte y cepillado</h3>
-          <p>Cortes que respetan la forma de tu rostro y cepillados con volumen, movimiento y acabado de revista.</p>
-          <a class="arrow" data-book href="#contacto">Reservar <i>→</i></a>
-        </article>
-        <article class="svc rv d1">
-          <span class="num">05</span>
-          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M16 6c0 8 4 10 4 18s-4 10-4 18"/><path d="M24 6c0 8 4 10 4 18s-4 10-4 18"/><path d="M32 6c0 8-4 10-4 18s4 10 4 18"/></svg>
-          <h3>Peinados y trenzas</h3>
-          <p>Recogidos, ondas y trenzas para matrimonios, grados, quinceañeras o cualquier celebración.</p>
-          <a class="arrow" data-book href="#contacto">Reservar <i>→</i></a>
-        </article>
-        <article class="svc rv d2">
-          <span class="num">06</span>
-          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M4 24c8-9 32-9 40 0-8 9-32 9-40 0Z"/><circle cx="24" cy="24" r="5"/><path d="M8 14c10-6 22-6 32 0"/></svg>
-          <h3>Cejas y maquillaje</h3>
-          <p>Diseño de cejas y maquillaje profesional que realza tus rasgos, para el día o para la noche.</p>
-          <a class="arrow" data-book href="#contacto">Reservar <i>→</i></a>
+        <article class="svc rv d3">
+          <div class="ph" data-n="04"><img src="img/unas-chrome.jpg" alt="Uñas con efecto chrome ojo de gato" style="object-position:50% 60%" loading="lazy"></div>
+          <div class="tx"><h3>Efecto chrome</h3><p>Acabados metalizados y ojo de gato con profundidad y reflejos.</p><a class="go" data-book href="#ubicacion">Reservar <i>→</i></a></div>
         </article>
       </div>
+      <p class="more rv">También hacemos <b>keratina, color, corte, peinados, cejas y maquillaje.</b> Pregúntanos por WhatsApp.</p>
     </div>
   </section>
 
-  <!-- GALERÍA -->
-  <section id="galeria">
+  <!-- GALERIA -->
+  <section id="galeria" class="gallery-sec">
     <div class="wrap">
       <div class="sec-head">
         <div>
           <span class="eyebrow rv">Nuestro trabajo</span>
-          <h2 class="rv d1" style="margin-top:.8rem">Resultados <em>que hablan</em></h2>
+          <h2 class="rv d1" style="margin-top:.8rem">Diseños <em>recientes</em></h2>
         </div>
-        <p class="rv d2">Algunos de los trabajos recientes del salón. Toca cualquier foto para verla más grande.</p>
+        <p class="rv d2">Algunos trabajos del salón. Toca una foto para verla más grande.</p>
       </div>
-      <div class="gallery" id="gallery">
-        <figure class="shot rv" tabindex="0" role="button" aria-label="Ampliar: maquillaje y peinado"><img src="img/01.jpg" alt="Maquillaje profesional y peinado recogido" loading="lazy"><figcaption>Maquillaje y peinado</figcaption></figure>
-        <figure class="shot rv d1" tabindex="0" role="button" aria-label="Ampliar: uñas"><img src="img/02.jpg" alt="Uñas semipermanentes con francés y dorado" loading="lazy"><figcaption>Uñas semipermanentes</figcaption></figure>
-        <figure class="shot rv d2" tabindex="0" role="button" aria-label="Ampliar: keratina"><img src="img/10.jpg" alt="Cabello liso y brillante con keratina" loading="lazy"><figcaption>Keratina y alisado</figcaption></figure>
-        <figure class="shot rv d3" tabindex="0" role="button" aria-label="Ampliar: rizos"><img src="img/05.jpg" alt="Cabello rizado definido" loading="lazy"><figcaption>Rizos definidos</figcaption></figure>
-        <figure class="shot rv" tabindex="0" role="button" aria-label="Ampliar: tratamiento"><img src="img/07.jpg" alt="Cabello en proceso de tratamiento" loading="lazy"><figcaption>Tratamiento capilar</figcaption></figure>
-        <figure class="shot rv d1" tabindex="0" role="button" aria-label="Ampliar: color"><img src="img/12.jpg" alt="Cabello con color cobrizo intenso" loading="lazy"><figcaption>Color y cambio de look</figcaption></figure>
-        <figure class="shot rv d2" tabindex="0" role="button" aria-label="Ampliar: alisado"><img src="img/08.jpg" alt="Cabello oscuro suave y con movimiento" loading="lazy"><figcaption>Suavidad y movimiento</figcaption></figure>
-        <figure class="shot rv d3" tabindex="0" role="button" aria-label="Ampliar: cepillado"><img src="img/09.jpg" alt="Cabello largo con cepillado" loading="lazy"><figcaption>Corte y cepillado</figcaption></figure>
+      <div class="gallery">
+        <figure class="shot rv" tabindex="0" role="button" aria-label="Ampliar: francés con detalles"><img src="img/unas-frances.jpg" alt="Francés con detalles blancos y puntas doradas" loading="lazy"><figcaption>Francés con detalles</figcaption></figure>
+        <figure class="shot rv d1" tabindex="0" role="button" aria-label="Ampliar: mariposas"><img src="img/unas-mariposas.jpg" alt="Mariposas blancas con glitter" loading="lazy"><figcaption>Mariposas con glitter</figcaption></figure>
+        <figure class="shot rv d2" tabindex="0" role="button" aria-label="Ampliar: efecto chrome"><img src="img/unas-chrome.jpg" alt="Efecto chrome ojo de gato" loading="lazy"><figcaption>Efecto chrome</figcaption></figure>
+        <figure class="shot rv" tabindex="0" role="button" aria-label="Ampliar: degradado"><img src="img/unas-degradado.jpg" alt="Degradado rosa a blanco" loading="lazy"><figcaption>Degradado</figcaption></figure>
+        <figure class="shot rv d1" tabindex="0" role="button" aria-label="Ampliar: semipermanente café"><img src="img/unas-cafe.jpg" alt="Semipermanente en tono café" loading="lazy"><figcaption>Semipermanente café</figcaption></figure>
+        <figure class="shot rv d2" tabindex="0" role="button" aria-label="Ampliar: mariposa fina"><img src="img/unas-mariposa-fina.jpg" alt="Francés fino con mariposa" loading="lazy"><figcaption>Francés con mariposa</figcaption></figure>
       </div>
       <div class="gal-foot rv">
         <a class="btn btn-line" href="https://www.instagram.com/estiloybellezaeli85/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#ig"/></svg> Ver más en Instagram</a>
@@ -352,37 +407,60 @@
     </div>
   </section>
 
-  <!-- EL SALÓN -->
-  <section id="salon" class="about">
+  <!-- ELI -->
+  <section id="eli" class="about on-light">
     <div class="wrap about-grid">
-      <div class="about-img rv"><img src="img/01.jpg" alt="Clienta con maquillaje y peinado realizados en el salón" loading="lazy" style="object-position:50% 30%"></div>
+      <div class="portrait rv">
+        <div class="frame"><img src="img/eli.jpg" alt="Eli, fundadora de Estilo y Belleza Eli" loading="lazy"></div>
+        <div class="sig"><b>Eli</b><span>Fundadora</span></div>
+      </div>
       <div>
-        <span class="eyebrow rv">El salón</span>
-        <h2 class="rv d1">Belleza hecha <em>con calma</em> y con oficio</h2>
-        <p class="rv d2">En Estilo y Belleza Eli cuidamos cada servicio como si fuera el único del día. Escuchamos lo que quieres, te decimos con honestidad qué te favorece y trabajamos con técnica profesional para que el resultado dure y se vea natural.</p>
+        <span class="eyebrow rv">Conoce a Eli</span>
+        <h2 class="rv d1">Detrás de cada diseño hay <em>manos que cuidan el detalle</em></h2>
+        <p class="rv d2">En Estilo y Belleza Eli cada set de uñas se piensa contigo: escuchamos tu idea, te recomendamos lo que mejor se ve en tus manos y lo trabajamos con precisión hasta lograr un acabado limpio, brillante y duradero.</p>
         <ol class="steps">
-          <li class="rv"><div><b>Escríbenos</b><span>Cuéntanos qué servicio quieres y mándanos una foto de referencia.</span></div></li>
-          <li class="rv d1"><div><b>Elige tu horario</b><span>Te confirmamos disponibilidad y cuánto tomará tu servicio.</span></div></li>
-          <li class="rv d2"><div><b>Disfruta el resultado</b><span>Llegas, te consentimos y sales lista para brillar.</span></div></li>
+          <li class="rv"><div><b>Escríbenos</b><span>Cuéntanos qué diseño quieres y envíanos una foto de referencia.</span></div></li>
+          <li class="rv d1"><div><b>Elige tu horario</b><span>Te confirmamos disponibilidad y el tiempo que tomará tu servicio.</span></div></li>
+          <li class="rv d2"><div><b>Disfruta el resultado</b><span>Llegas, te consentimos y sales con unas manos de revista.</span></div></li>
         </ol>
       </div>
     </div>
   </section>
 
-  <!-- CTA + CONTACTO -->
-  <section id="contacto" class="cta">
+  <!-- UBICACION + CONTACTO -->
+  <section id="ubicacion" class="where">
     <div class="wrap">
-      <span class="eyebrow rv">Reserva tu momento</span>
-      <h2 class="rv d1">Hoy es un buen día <em>para verte increíble.</em></h2>
-      <p class="rv d2">Escríbenos y agenda tu cita. Respondemos con disponibilidad y te ayudamos a elegir el servicio ideal.</p>
-      <div class="cta-row rv d3">
-        <a class="btn btn-solid" data-book href="https://ig.me/m/estiloybellezaeli85" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg> Agendar mi cita</a>
-        <a class="btn btn-line" href="https://www.instagram.com/estiloybellezaeli85/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#ig"/></svg> @estiloybellezaeli85</a>
+      <div class="where-grid">
+        <div>
+          <span class="eyebrow rv">Visítanos</span>
+          <h2 class="rv d1">Encuéntranos <em>en Medellín</em></h2>
+          <p class="lead rv d2">Agenda tu cita por WhatsApp y llega fácil con el mapa. Si te pierdes, escríbenos y te guiamos.</p>
+          <div class="info rv d2">
+            <div><span class="eyebrow">Ubicación</span><span>Medellín, Antioquia · Colombia</span></div>
+            <div><span class="eyebrow">WhatsApp</span><a data-wa-link href="#">+57 314 632 1882</a></div>
+            <div><span class="eyebrow">Instagram</span><a href="https://www.instagram.com/estiloybellezaeli85/" target="_blank" rel="noopener">@estiloybellezaeli85</a></div>
+          </div>
+          <div class="cta-row rv d3">
+            <a class="btn btn-solid" id="howto" href="https://www.google.com/maps/dir/?api=1&destination=6.285420203786978,-75.60751494011207&travelmode=driving" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#nav"/></svg> Cómo llegar</a>
+            <a class="btn btn-line" href="https://waze.com/ul?ll=6.285420203786978,-75.60751494011207&navigate=yes" target="_blank" rel="noopener">Abrir en Waze</a>
+          </div>
+          <p class="tip rv d3">En Google Maps la ruta parte de tu ubicación actual.</p>
+        </div>
+        <div class="map rv d1">
+          <iframe title="Mapa de ubicación de Estilo y Belleza Eli" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=6.285420203786978,-75.60751494011207&z=17&hl=es&output=embed"></iframe>
+          <a class="pin" href="https://www.google.com/maps/search/?api=1&query=6.285420203786978,-75.60751494011207" target="_blank" rel="noopener"><svg width="18" height="18" aria-hidden="true"><use href="#pin"/></svg> Abrir en Google Maps</a>
+        </div>
       </div>
-      <div class="contact-grid rv">
-        <div><span class="eyebrow">Ubicación</span>Medellín, Colombia<br><span style="color:var(--mute);font-size:.9rem">Dirección exacta por mensaje</span></div>
-        <div><span class="eyebrow">Escríbenos</span><a id="contactLink" href="https://ig.me/m/estiloybellezaeli85" target="_blank" rel="noopener">Mensaje directo en Instagram</a></div>
-        <div><span class="eyebrow">Síguenos</span><a href="https://www.instagram.com/estiloybellezaeli85/" target="_blank" rel="noopener">@estiloybellezaeli85</a></div>
+
+      <div class="final">
+        <svg class="big" aria-hidden="true"><use href="#logo"/></svg>
+        <h2 class="rv">Tus manos merecen <em class="grad">verse increíbles.</em></h2>
+        <p class="rv d1">Escríbenos hoy y reserva tu espacio. Te respondemos con disponibilidad y te ayudamos a elegir tu diseño.</p>
+        <div class="cta-row rv d2">
+          <a class="btn btn-solid" data-book href="#ubicacion"><svg aria-hidden="true"><use href="#wa"/></svg> Agendar por WhatsApp</a>
+          <a class="btn btn-line" href="https://www.instagram.com/estiloybellezaeli85/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#ig"/></svg> Instagram</a>
+        </div>
       </div>
     </div>
   </section>
@@ -390,38 +468,35 @@
 
 <footer>
   <div class="wrap foot">
-    <a href="#inicio" class="brand"><svg aria-hidden="true"><use href="#mark"/></svg><span class="brand-name" style="font-size:1.05rem">Estilo y Belleza Eli</span></a>
+    <a href="#inicio" class="brand"><svg aria-hidden="true"><use href="#logo"/></svg><span class="brand-name" style="font-size:1.05rem">Estilo y Belleza Eli</span></a>
     <span>© <span id="yr">2026</span> Estilo y Belleza Eli · Medellín</span>
   </div>
 </footer>
 
+<a class="fab" id="fab" data-book href="#ubicacion" aria-label="Agendar por WhatsApp"><svg aria-hidden="true"><use href="#wa"/></svg><span>Agendar cita</span></a>
+
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto ampliada"><button aria-label="Cerrar">✕</button><img alt=""></div>
 
 <script>
-/* ── Configuración: pon aquí el WhatsApp del salón (solo dígitos, con 57 al inicio).
-      Mientras esté vacío, todos los botones de "Agendar" abren el mensaje directo de Instagram. */
-const WHATSAPP = "";            // ej.: "573001234567"
-const WA_TEXT  = "Hola, quisiera agendar una cita en Estilo y Belleza Eli.";
+/* WhatsApp del salón (solo dígitos, con 57 al inicio). */
+const WHATSAPP = "573146321882";
+const WA_TEXT  = "Hola, quisiera agendar una cita de uñas en Estilo y Belleza Eli.";
 
 (function(){
   const $ = (s, c=document) => c.querySelector(s), $$ = (s, c=document) => [...c.querySelectorAll(s)];
 
-  // Botones de reserva
-  const bookUrl = WHATSAPP
-    ? `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(WA_TEXT)}`
-    : "https://ig.me/m/estiloybellezaeli85";
+  const bookUrl = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(WA_TEXT)}`;
   $$("[data-book]").forEach(a => { a.href = bookUrl; a.target = "_blank"; a.rel = "noopener"; });
-  const cl = $("#contactLink");
-  if (WHATSAPP){ cl.href = bookUrl; cl.textContent = "Escríbenos por WhatsApp"; }
-
+  $$("[data-wa-link]").forEach(a => { a.href = bookUrl; a.target = "_blank"; a.rel = "noopener"; });
   $("#yr").textContent = new Date().getFullYear();
 
-  // Cabecera al hacer scroll
-  const header = $("header");
-  const onScroll = () => header.classList.toggle("scrolled", scrollY > 24);
+  const header = $("header"), fab = $("#fab");
+  const onScroll = () => {
+    header.classList.toggle("scrolled", scrollY > 24);
+    fab.classList.toggle("show", scrollY > innerHeight * .7);
+  };
   onScroll(); addEventListener("scroll", onScroll, {passive:true});
 
-  // Menú móvil
   const burger = $(".burger"), drawer = $("#drawer");
   const closeMenu = () => { drawer.classList.remove("open"); burger.setAttribute("aria-expanded","false"); };
   burger.addEventListener("click", () => {
@@ -430,11 +505,14 @@ const WA_TEXT  = "Hola, quisiera agendar una cita en Estilo y Belleza Eli.";
   });
   $$("#drawer a").forEach(a => a.addEventListener("click", closeMenu));
 
-  // Aparición al hacer scroll
   const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }), {threshold:.12, rootMargin:"0px 0px -40px 0px"});
   $$(".rv").forEach(el => io.observe(el));
 
-  // Lightbox
+  // "Como llegar": abrir la app de mapas nativa en el celular
+  const dest = "6.285420203786978,-75.60751494011207";
+  const howto = $("#howto");
+  if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) howto.href = `https://maps.apple.com/?daddr=${dest}&dirflg=d`;
+
   const lb = $("#lb"), lbImg = $("img", lb);
   const openLb = fig => { const im = $("img", fig); lbImg.src = im.src; lbImg.alt = im.alt; lb.classList.add("open"); $("button", lb).focus(); };
   const closeLb = () => lb.classList.remove("open");

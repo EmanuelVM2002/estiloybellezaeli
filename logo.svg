@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1080 1080" color="#0b0b0b">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&amp;family=Pinyon+Script&amp;display=swap');
+    .arc{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:84px;letter-spacing:.2em;fill:currentColor}
+    .eli{font-family:'Pinyon Script','Snell Roundhand',cursive;font-size:330px;fill:currentColor}
+    .sub{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:44px;letter-spacing:.42em;fill:currentColor}
+  </style>
+  <defs>
+    <clipPath id="lg-clip"><circle cx="540" cy="540" r="510"/></clipPath>
+    <mask id="lg-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1080" height="1080">
+      <image href="img/mujer-blanco.png" xlink:href="img/mujer-blanco.png" x="30" y="480" width="570" height="595"/>
+    </mask>
+    <path id="lg-arc" d="M 128 540 A 412 412 0 0 1 952 540"/>
+    <g id="lg-bf">
+      <path d="M0 -4C-6 -34 -42 -64 -64 -50C-80 -38 -58 -8 0 -4ZM0 -4C6 -34 42 -64 64 -50C80 -38 58 -8 0 -4Z"/>
+      <path d="M0 0C-26 6 -52 18 -44 42C-36 62 -10 44 0 0ZM0 0C26 6 52 18 44 42C36 62 10 44 0 0Z"/>
+      <path d="M0 -14V38M0 -14C-4 -30 -12 -38 -20 -42M0 -14C4 -30 12 -38 20 -42"/>
+      <path d="M-34 -36C-22 -34 -14 -26 -10 -16M34 -36C22 -34 14 -26 10 -16" stroke-width="3"/>
+    </g>
+  </defs>
+  <circle cx="540" cy="540" r="522" fill="none" stroke="currentColor" stroke-width="9"/>
+  <circle cx="540" cy="540" r="496" fill="none" stroke="currentColor" stroke-width="2"/>
+  <g clip-path="url(#lg-clip)"><rect width="1080" height="1080" fill="currentColor" mask="url(#lg-mask)"/></g>
+  <text class="arc" text-anchor="middle"><textPath href="#lg-arc" xlink:href="#lg-arc" startOffset="50%">ESTILO Y BELLEZA</textPath></text>
+  <text class="eli" x="570" y="690">Eli</text>
+  <!-- botella de esmalte -->
+  <g transform="translate(40 36)" fill="none" stroke="currentColor" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="690" y="800" width="116" height="140" rx="26"/>
+    <path d="M722 800v-26h52v26"/>
+    <rect x="718" y="700" width="56" height="74" rx="10" fill="currentColor"/>
+    <path d="M706 840c20-14 70 14 88 0"/>
+  </g>
+  <!-- mariposas -->
+  <g fill="none" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round">
+    <g transform="translate(420 330) rotate(-14) scale(1.5)"><use href="#lg-bf" xlink:href="#lg-bf"/></g>
+    <g transform="translate(508 438) rotate(16) scale(.9)"><use href="#lg-bf" xlink:href="#lg-bf"/></g>
+    <g transform="translate(330 440) rotate(-30) scale(.62)"><use href="#lg-bf" xlink:href="#lg-bf"/></g>
+  </g>
+  <text class="sub" x="760" y="760" text-anchor="middle" style="display:none">SALÓN</text>
+</svg>
