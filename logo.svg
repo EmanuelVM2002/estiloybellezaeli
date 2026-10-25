@@ -23,14 +23,14 @@
   <g clip-path="url(#lg-clip)"><rect width="1080" height="1080" fill="currentColor" mask="url(#lg-mask)"/></g>
   <text class="arc" text-anchor="middle"><textPath href="#lg-arc" xlink:href="#lg-arc" startOffset="50%">ESTILO Y BELLEZA</textPath></text>
   <text class="eli" x="570" y="690">Eli</text>
-  <!-- botella de esmalte -->
-  <g transform="translate(40 36)" fill="none" stroke="currentColor" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
-    <rect x="690" y="800" width="116" height="140" rx="26"/>
-    <path d="M722 800v-26h52v26"/>
-    <rect x="718" y="700" width="56" height="74" rx="10" fill="currentColor"/>
-    <path d="M706 840c20-14 70 14 88 0"/>
+  <!-- mariposas bajo Eli -->
+  <g fill="none" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M628 948C690 925 748 905 796 846C820 816 836 800 846 786" stroke-width="3" stroke-dasharray="1 13"/>
+    <g transform="translate(742 842) rotate(14) scale(1.25)"><use href="#lg-bf" xlink:href="#lg-bf"/></g>
+    <g transform="translate(868 764) rotate(-18) scale(.78)"><use href="#lg-bf" xlink:href="#lg-bf"/></g>
+    <g transform="translate(650 912) rotate(-10) scale(.58)"><use href="#lg-bf" xlink:href="#lg-bf"/></g>
   </g>
-  <!-- mariposas -->
+  <!-- mariposas arriba -->
   <g fill="none" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round">
     <g transform="translate(420 330) rotate(-14) scale(1.5)"><use href="#lg-bf" xlink:href="#lg-bf"/></g>
     <g transform="translate(508 438) rotate(16) scale(.9)"><use href="#lg-bf" xlink:href="#lg-bf"/></g>
